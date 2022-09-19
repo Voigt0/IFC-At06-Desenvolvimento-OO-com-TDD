@@ -17,7 +17,7 @@ main {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #ff8c6b;
+  background: linear-gradient(100deg, #a3d1da, #A696ff);
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -90,6 +90,7 @@ form.sign-up-form {
   color: #151111;
 }
 
+
 .heading h2 {
   font-size: 2.1rem;
   font-weight: 600;
@@ -112,7 +113,7 @@ form.sign-up-form {
 }
 
 .toggle:hover {
-  color: #8371fd;
+  color: #90011e;
 }
 
 .input-wrap {
@@ -159,6 +160,10 @@ label {
     margin-bottom: 1rem;
     margin-left: 20%;
   }
+
+input[name="usuaTipo"] {
+    accent-color: #90011e;
+}
   
 label#radio {
     position: relative;
@@ -184,7 +189,7 @@ label#radio {
 }
 
 .sign-btn:hover {
-  background-color: #8371fd;
+  background-color: #90011e;
 }
 
 .text {
@@ -198,7 +203,7 @@ label#radio {
 }
 
 .text a:hover {
-  color: #8371fd;
+  color: #90011e;
 }
 
 main.sign-up-mode form.sign-in-form {

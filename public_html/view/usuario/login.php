@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/login.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
 <body>
@@ -32,7 +32,7 @@
 
                             <div class="input-wrap">
                                 <input type="password" id="usuaSenha" name="usuaSenha" value="" minlength="8" maxlength="20" class="input-field" required>
-                                <label>Password</label>
+                                <label>Senha</label>
                             </div>
 
                             <input type="submit" value="Entrar" class="sign-btn">
@@ -60,7 +60,12 @@
                                 <input type="radio" id="usuaTipo" name="usuaTipo" value="1">
                                 <label id="radio">Médico</label>
                                 <input type="radio" id="usuaTipo" name="usuaTipo" value="2">
-                                <label id="radio">Enfermeiro</label>
+                                <label id="radio">Recepcionista</label>
+                            </div>
+
+                            <div class="input-wrap">
+                                <input class="input-field" type="text" id="usuaCrm" name="usuaCrm" value="" required>
+                                <label>CRM (apenas para médicos)</label>
                             </div>
 
                             <div class="input-wrap">
