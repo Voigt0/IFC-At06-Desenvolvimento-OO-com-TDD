@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(100deg, #a3d1da, #A696ff);
+    background-repeat: no-repeat;
+}
+
+.hero{
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    padding: 10px 10%;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+}
+
+.logo{
+    width: 70px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}
+
+nav ul li a:hover{
+    color:#90011e;
+}
+
+.perfil-btn{
+    text-decoration: none;
+    margin-right: 400;
+    display: inline-block;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #df4881, #c430d7);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+}
+
+.perfil-btn:hover{
+    background-image: linear-gradient(45deg, #c430d7, #df4881);
+}
+
+.corpo{
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* gap: 3px; */
+    flex-wrap: wrap;
+    width: 50%;
+    padding: 1rem;
+
+}
+
+.img-perfil{
+    width: 40%;
+    float: left;
+}
+
+.img{
+    width: 350px;
+}
+.heading{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+h2{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.input-box{
+    position: relative;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    background: #df48822a;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+
+.input-box span{
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+}
+
+
+.btn {
+    width: 200px;
+    height: 43px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    /* margin-bottom: 2rem; */
+    transition: 0.3s;
+    margin: 1rem;
+    float: right;
+  }
+  
+  .btn:hover {
+    background-color: #90011e;
+  }
+  

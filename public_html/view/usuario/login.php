@@ -24,14 +24,24 @@
                             <a href="#" class="toggle">Cadastre-se</a>
                         </div>
 
+                        
+
                         <div class="actual-form">
+
+                            <div class="input-radio">
+                                <input type="radio" id="tipo" name="tipo" value="1">
+                                <label id="radio">Médico</label>
+                                <input type="radio" id="tipo" name="tipo" value="2">
+                                <label id="radio">Recepcionista</label>
+                            </div>
+
                             <div class="input-wrap">
-                                <input type="email" id="usuaEmail" name="usuaEmail" value="" minlength="4" class="input-field" required>
+                                <input type="email" id="email" name="email" value="" minlength="4" class="input-field" required>
                                 <label>Email</label>
                             </div>
 
                             <div class="input-wrap">
-                                <input type="password" id="usuaSenha" name="usuaSenha" value="" minlength="8" maxlength="20" class="input-field" required>
+                                <input type="password" id="senha" name="senha" value="" minlength="8" maxlength="20" class="input-field" required>
                                 <label>Senha</label>
                             </div>
 
@@ -40,9 +50,6 @@
                     </form>
 
                     <form action="index.html" autocomplete="off" class="sign-up-form">
-                        <div class="logo">
-                            <h4>DocGO!</h4>
-                        </div>
 
                         <div class="heading">
                             <h2>Cadastre-se</h2>
@@ -52,39 +59,44 @@
 
                         <div class="actual-form">
                             <div class="input-wrap">
-                                <input type="text" id="usuaNome" name="usuaNome" value="" minlength="4" class="input-field" required>
+                                <input type="text" id="nome" name="nome" value="" minlength="4" class="input-field" required>
                                 <label>Nome completo</label>
                             </div>
 
                             <div class="input-radio">
-                                <input type="radio" id="usuaTipo" name="usuaTipo" value="1">
+                                <input type="radio" id="tipo" name="tipo" value="1">
                                 <label id="radio">Médico</label>
-                                <input type="radio" id="usuaTipo" name="usuaTipo" value="2">
+                                <input type="radio" id="tipo" name="tipo" value="2">
                                 <label id="radio">Recepcionista</label>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="usuaCrm" name="usuaCrm" value="" required>
+                                <input class="input-field" type="text" id="crm" name="crm" value="" required>
                                 <label>CRM (apenas para médicos)</label>
+                            </div>
+                            
+                            <div class="input-wrap">
+                                <input class="input-field" type="text" id="especializacao" name="especializacao" value="" required>
+                                <label>Especialização</label>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="usuaTelefone" name="usuaTelefone" value="" required>
+                                <input class="input-field" type="text" id="telefone" name="telefone" value="" required>
                                 <label>Telefone de contato</label>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="email" id="usuaEmail" name="usuaEmail" value="" required>
+                                <input class="input-field" type="email" id="email" name="email" value="" required>
                                 <label>E-mail</label>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="usuaPassword" name="usuaPassword" value="" required>
+                                <input class="input-field" type="password" id="senha" name="senha" value="" required>
                                 <label>Senha</label>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="confPass" name="confPass" value="" required>
+                                <input class="input-field" type="password" id="confSenha" name="confSenha" value="" required>
                                 <label>Confirmar Senha</label>
                             </div>
 
