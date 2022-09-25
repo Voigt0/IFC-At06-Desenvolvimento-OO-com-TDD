@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
-    <link rel="stylesheet" href="../../css/addPaciente.css">
+    <link rel="stylesheet" href="../../css/adicionar-paciente.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
 <body>
@@ -20,84 +20,83 @@
             </ul>
         </nav>
         
-        <form method="post" action="../../php/controle/controle-adicionar-paciente.php" class="">
-            <div class="heading">
-                <h2>Adicione o paciente</h2>
-            </div>
-
-
+        <div class="heading">
+            <h2>Adicione o paciente</h2>
+        </div>
+        
+        <form method="" class="">
             <div class="form-box">
                 <div class="input-box">
-                    <label for="nome">Nome completo</label>
-                    <input type="text" id="nome" name="nome" class="input-field" required>
+                    <label for="paciNome">Nome completo</label>
+                    <input type="text" id="paciNome" name="paciNome" class="input-field" required placeholder="Insira o nome do paciente">
                 </div>
             
                 <div class="input-box">
-                    <label for="estado">Estado</label>
-                    <input type="text" id="estado" name="estado" class="input-field" required>
+                    <label for="paciEstado">Estado</label>
+                    <input type="text" id="paciEstado" name="paciEstado" class="input-field" required placeholder="Insira o estado do paciente">
                 </div>
 
                 <div class="input-box">
-                    <label for="cidade">Cidade</label>
-                    <input type="text" id="cidade" name="cidade" class="input-field" required>
+                    <label for="paciCidade">Cidade</label>
+                    <input type="text" id="paciCidade" name="paciCidade" class="input-field" required placeholder="Insira a cidade do paciente">
                 </div>
 
                 <div class="input-box">
-                    <label for="endereco">Nome completo</label>
-                    <input type="text" id="endereco" name="endereco" class="input-field" required>
+                    <label for="paciEndereco">Endereço</label>
+                    <input type="text" id="paciEndereco" name="paciEndereco" class="input-field" required placeholder="Insira o endereço do paciente">
                 </div>
 
                 <div class="input-box">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone" name="telefone" class="input-field" required>
+                    <label for="paciTelefone">Telefone</label>
+                    <input type="text" id="paciTelefone" name="paciTelefone" class="input-field" required placeholder="Insira o telefone do paciente">
                 </div>
 
                 <div class="input-box">
-                    <label for="comorbidades">Comorbidades</label>
-                    <input type="text" id="comorbidades" name="comorbidades" class="input-field" required>
+                    <label for="paciComorbidades">Comorbidades</label>
+                    <textarea id="paciComorbidades" name="paciComorbidades" class="input-field" required placeholder="Insira as comorbidades do paciente"></textarea>
                 </div>
 
+                <p>Tabagismo</p>
                 <div class="input-radio">
-                    <p>Tabagismo</p>
-                    <input type="radio" id="tabagismo" name="tabagismo" value="1">
+                    <input type="radio" id="paciTabagismo" name="paciTabagismo" value="1">
                     <label id="radio">Sim</label>
-                    <input type="radio" id="tabagismo" name="tabagismo" value="0">
+                    <input type="radio" id="paciTabagismo" name="paciTabagismo" value="2">
                     <label id="radio">Não</label>
                 </div>
 
+                <p>Etilismo</p>
                 <div class="input-radio">
-                    <p>Etilismo</p>
-                    <input type="radio" id="etilismo" name="etilismo" value="1">
+                    <input type="radio" id="paciEtilismo" name="paciEtilismo" value="1">
                     <label id="radio">Sim</label>
-                    <input type="radio" id="etilismo" name="etilismo" value="0">
+                    <input type="radio" id="paciEtilismo" name="paciEtilismo" value="2">
                     <label id="radio">Não</label>
                 </div>
             
                 <div class="input-box">
-                    <label for="alergias">Alergias</label>
-                    <input type="text" id="alergias" name="alergias" class="input-field" required>
+                    <label for="paciAlergias">Alergias</label>
+                    <textarea id="paciAlergias" name="paciAlergias" class="input-field" required placeholder="Insira as alergias do paciente"></textarea>
                 </div>
                 <div class="input-box">
-                    <label for="medicacao">Medicações</label>
-                    <input type="text" id="medicacao" name="medicacao" class="input-field" required>
-                </div>
-
-                <div class="input-box">
-                    <label for="historiaClinica">História Clinica</label>
-                    <input type="text" id="historiaClinica" name="historiaClinica" class="input-field" required>
+                    <label for="paciMedicacao">Medicações</label>
+                    <textarea id="paciMedicacao" name="paciMedicacao" class="input-field" required placeholder="Insira as medicações do paciente"></textarea>
                 </div>
 
                 <div class="input-box">
-                    <label for="peso">Peso</label>
-                    <input type="text" id="peso" name="peso" class="input-field" required>
+                    <label for="paciHistoriaClinica">História Clinica</label>
+                    <textarea id="paciHistoriaClinica" name="paciHistoriaClinica" class="input-field" required placeholder="Insira uma breve história clinica do paciente"></textarea>
                 </div>
 
                 <div class="input-box">
-                    <label for="altura">Altura</label>
-                    <input type="text" id="altura" name="altura" class="input-field" required>
+                    <label for="paciPeso">Peso</label>
+                    <input type="text" id="paciPeso" name="paciPeso" class="input-field" required placeholder="Insira o peso do paciente">
+                </div>
+
+                <div class="input-box">
+                    <label for="paciAltura">Altura</label>
+                    <input type="text" id="paciAltura" name="paciAltura" class="input-field" required placeholder="Insira a altura do paciente">
                 </div>
         
-                <center><input type="submit" value="Cadastrar" class="btn"></center>
+                <input type="submit" value="Cadastrar" class="btn">
 
             </div>
         </form>

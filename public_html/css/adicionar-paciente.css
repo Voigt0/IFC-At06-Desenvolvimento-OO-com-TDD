@@ -80,9 +80,13 @@ h2{
 }
 
 .form-box{
-    padding: 3rem;
+    padding: 1rem;
     border: 3px solid #000;
-    width: 300px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 form{
@@ -99,10 +103,38 @@ form{
     align-items: baseline;
 }
 
-
 .input-box{
     display: flex;
     flex-direction: column;
+    /* margin: 1rem; */
+}
+
+.input-box input, textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 0.90em;
+}
+
+p{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+label[id="radio"]:hover{
+    color: #90011e;
+}
+
+.input-radio{
+    margin: 10px;
+}
+
+
+input[name="paciTabagismo"], input[name="paciEtilismo"] {
+    accent-color: #90011e;
 }
 
 
@@ -123,3 +155,20 @@ form{
 .btn:hover {
     background-color: #90011e;
 }
+
+input[type=text]{
+    width: 300px;
+    height: 2rem;
+}
+
+textarea{
+    width: 300px;
+    min-height: 100px;
+    font-family: "Poppins", sans-serif;
+}
+
+label{
+    margin-top: 1rem;
+}
+
+
