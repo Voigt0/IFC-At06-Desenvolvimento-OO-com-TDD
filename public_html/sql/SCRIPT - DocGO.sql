@@ -69,15 +69,15 @@ CREATE TABLE IF NOT EXISTS `docgo`.`Consulta` (
   `consGravidade` VARCHAR(45) NOT NULL,
   `consEstado` TINYINT NOT NULL,
   `Paciente_paciId` INT NOT NULL,
-  `Usuario_usuaId` INT NOT NULL,
+  `Medico_mediId` INT NOT NULL,
   PRIMARY KEY (`consId`),
   CONSTRAINT `fk_Consulta_Paciente1`
     FOREIGN KEY (`Paciente_paciId`)
     REFERENCES `docgo`.`Paciente` (`paciId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `fk_Consulta_Usuario1`
-    FOREIGN KEY (`Usuario_usuaId`)
+  CONSTRAINT `fk_Consulta_Medico1`
+    FOREIGN KEY (`Medico_mediId`)
     REFERENCES `docgo`.`Medico` (`mediId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)

@@ -10,7 +10,6 @@
         private $email;
         private $senha;
 
-
         public function __construct($id, $nome, $crm, $especializacao, $telefone, $email, $senha) {
             $this->setId($id);
             $this->setNome($nome);
@@ -97,7 +96,7 @@
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Medico (mediNome, mediCrm, mediEspecializacao, mediTelefone, mediEmail, mediSenha) VALUES (:mediNome, :mediCrm, :mediEspecializacao, :mediTelefone, :mediEmail, :mediSenha)";
+            $sql = "INSERT INTO Medico (mediNome, mediCrm, mediEspecializacao, mediEmail, mediSenha) VALUES (:mediNome, :mediCrm, :mediEspecializacao, :mediEmail, :mediSenha)";
             $params = array(
                 ":mediNome" => $this->getNome(),
                 ":mediCrm" => $this->getCrm(),
@@ -110,7 +109,7 @@
         }
 
         public function update(){
-            $sql = "UPDATE Medico SET mediNome = :mediNome, mediCrm = :mediCrm, mediEspecializacao = :mediEspecializacao, mediTelefone = :mediTelefone, mediEmail = :mediEmail, mediSenha = :mediSenha WHERE mediId = :mediId";
+            $sql = "UPDATE Medico SET mediNome = :mediNome, mediCrm = :mediCrm, mediEspecializacao = :mediEspecializacao, mediTelefone = :mediTelefone, mediEmail = :mediEmail, mediTelefone = :mediTelefone, mediSenha = :mediSenha WHERE mediId = :mediId";
             $params = array(
                 ":mediId" => $this->getId(),
                 ":mediNome" => $this->getNome(),

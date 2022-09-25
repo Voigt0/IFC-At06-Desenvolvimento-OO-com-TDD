@@ -11,7 +11,7 @@
         }
 
         public abstract function create();
-        public abstract function read();
+        public static abstract function consultar($busca = 0, $pesquisa = "");
         public abstract function update();
         public abstract function delete();
     }
