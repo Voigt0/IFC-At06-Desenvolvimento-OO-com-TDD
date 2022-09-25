@@ -61,6 +61,7 @@
             return $str;
         }
 
+        
         //Métodos de persistência
         public function create(){
             $sql = "INSERT INTO Recepcionista (receNome, receEmail, receSenha) VALUES (:receNome, :receEmail, :receSenha)";
@@ -84,9 +85,9 @@
         }
 
         public function delete(){
-            $sql = "DELETE FROM Recepcionista WHERE mediId = :mediId";
+            $sql = "DELETE FROM Recepcionista WHERE receId = :receId";
             $params = array(
-                ":mediId" => $this->getId()
+                ":receId" => $this->getId()
             );
             return Database::comando($sql, $params);
         }
@@ -97,39 +98,39 @@
             $sql = "SELECT * FROM Recepcionista";
             if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " WHERE mediId like :pesquisa"; break;
-                    case(2): $sql .= " WHERE mediNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " WHERE mediEmail like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(4): $sql .= " WHERE mediSenha like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(1): $sql .= " WHERE receId like :pesquisa"; break;
+                    case(2): $sql .= " WHERE receNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(3): $sql .= " WHERE receEmail like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " WHERE receSenha like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
-                $sql .= " ORDER BY mediId";
+                $sql .= " ORDER BY receId";
                 $params = array();
             }
             return Database::consulta($sql, $params);
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM Medico WHERE mediId = :mediId";
-            $params = array(':mediId'=>$id);
+            $sql = "SELECT * FROM Recepcionista WHERE receId = :receId";
+            $params = array(':receId'=>$id);
             return Database::consulta($sql, $params);
         }
 
 
         //Métodos de autenticação
         public static function autenticar($email, $senha){
-            $sql = "SELECT mediId FROM Medico WHERE mediEmail = :mediEmail AND mediSenha = :mediSenha";
+            $sql = "SELECT receId FROM Recepcionista WHERE receEmail = :receEmail AND receSenha = :receSenha";
             $params = array(
-                ':mediEmail' => $email,
-                ':mediSenha' => $senha
+                ':receEmail' => $email,
+                ':receSenha' => $senha
             );
             session_start();
             if (Database::consulta($sql, $params)) {
-                $_SESSION['mediId'] = Database::consulta($sql, $params)[0]['mediId'];
+                $_SESSION['receId'] = Database::consulta($sql, $params)[0]['receId'];
                 return true;
             } else {
-                $_SESSION['mediId'] = "";
+                $_SESSION['receId'] = "";
                 return false;
             }
         }

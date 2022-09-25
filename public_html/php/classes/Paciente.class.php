@@ -1,23 +1,40 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Medico extends Padrao{
+    class Paciente extends Padrao{
         private $id;
         private $nome;
-        private $crm;
-        private $especializacao;
+        private $nascimento;
+        private $estado;
+        private $cidade;
+        private $endereco;
         private $telefone;
-        private $email;
-        private $senha;
+        private $comorbidades;
+        private $tabagismo;
+        private $etilismo;
+        private $alergias;
+        private $medicacao;
+        private $historiaClinica;
+        private $peso;
+        private $altura;
 
-        public function __construct($id, $nome, $crm, $especializacao, $telefone, $email, $senha) {
+        
+        public function __construct($id, $nome, $nascimento, $estado, $cidade, $endereco, $telefone, $comorbidades, $tabagismo, $etilismo, $alergias, $medicacao, $historiaClinica, $peso, $altura) {
             $this->setId($id);
             $this->setNome($nome);
-            $this->setCrm($crm);
-            $this->setEspecializacao($especializacao);
+            $this->setNascimento($nascimento);
+            $this->setEstado($estado);
+            $this->setCidade($cidade);
+            $this->setEndereco($endereco);
             $this->setTelefone($telefone);
-            $this->setEmail($email);
-            $this->setSenha($senha);
+            $this->setComorbidades($comorbidades);
+            $this->setTabagismo($tabagismo);
+            $this->setEtilismo($etilismo);
+            $this->setAlergias($alergias);
+            $this->setMedicacao($medicacao);
+            $this->setHistoriaClinica($historiaClinica);
+            $this->setPeso($peso);
+            $this->setAltura($altura);
         }  
         
 
@@ -30,24 +47,56 @@
             return $this->nome;
         }
 
-        public function getCrm() {
-            return $this->crm;
+        public function getNascimento() {
+            return $this->nascimento;
         }
 
-        public function getEspecializacao() {
-            return $this->especializacao;
+        public function getEstado() {
+            return $this->estado;
+        }
+
+        public function getCidade() {
+            return $this->cidade;
+        }
+
+        public function getEndereco() {
+            return $this->endereco;
         }
 
         public function getTelefone() {
             return $this->telefone;
         }
 
-        public function getEmail() {
-            return $this->email;
+        public function getComorbidades() {
+            return $this->comorbidades;
         }
 
-        public function getSenha() {
-            return $this->senha;
+        public function getTabagismo() {
+            return $this->tabagismo;
+        }
+
+        public function getEtilismo() {
+            return $this->etilismo;
+        }
+
+        public function getAlergias() {
+            return $this->alergias;
+        }
+
+        public function getMedicacao() {
+            return $this->medicacao;
+        }
+
+        public function getHistoriaClinica() {
+            return $this->historiaClinica;
+        }
+
+        public function getPeso() {
+            return $this->peso;
+        }
+
+        public function getAltura() {
+            return $this->altura;
         }
 
 
@@ -59,73 +108,129 @@
             $this->nome = $nome;
         }
         
-        
-        public function setCrm($crm) {
-            $this->crm = $crm;
+        public function setNascimento($nascimento) {
+            $this->nascimento = $nascimento;
         }
         
-        public function setEspecializacao($especializacao) {
-            $this->especializacao = $especializacao;
+        public function setEstado($estado) {
+            $this->estado = $estado;
+        }
+        
+        public function setCidade($cidade) {
+            $this->cidade = $cidade;
+        }
+        
+        public function setEndereco($endereco) {
+            $this->endereco = $endereco;
         }
         
         public function setTelefone($telefone) {
             $this->telefone = $telefone;
         }
-
-        public function setEmail($email) {
-            $this->email = $email;
+        
+        public function setComorbidades($comorbidades) {
+            $this->comorbidades = $comorbidades;
         }
-
-        public function setSenha($senha) {
-            $this->senha = $senha;
+        
+        public function setTabagismo($tabagismo) {
+            $this->tabagismo = $tabagismo;
+        }
+        
+        public function setEtilismo($etilismo) {
+            $this->etilismo = $etilismo;
+        }
+        
+        public function setAlergias($alergias) {
+            $this->alergias = $alergias;
+        }
+        
+        public function setMedicacao($medicacao) {
+            $this->medicacao = $medicacao;
+        }
+        
+        public function setHistoriaClinica($historiaClinica) {
+            $this->historiaClinica = $historiaClinica;
+        }
+        
+        public function setPeso($peso) {
+            $this->peso = $peso;
+        }
+        
+        public function setAltura($altura) {
+            $this->altura = $altura;
         }
 
 
         //Método toString para exibir os dados do objeto
         public function __toString() {
-            $str = "<br>[Médico]<br>".
+            $str = "<br>[Paciente]<br>".
                     "<br>ID: ".$this->getId().
                     "<br>Nome: ".$this->getNome().
-                    "<br>CRM: ".$this->getCrm().
-                    "<br>Especialização: ".$this->getEspecializacao().
+                    "<br>Nascimento: ".$this->getNascimento().
+                    "<br>Estado: ".$this->getEstado().
+                    "<br>Cidade: ".$this->getCidade().
+                    "<br>Endereço: ".$this->getEndereco().
                     "<br>Telefone: ".$this->getTelefone().
-                    "<br>Email: ".$this->getEmail().
-                    "<br>Senha: ".$this->getSenha();
+                    "<br>Comorbidades: ".$this->getComorbidades().
+                    "<br>Tabagismo: ".$this->getTabagismo().
+                    "<br>Etilismo: ".$this->getEtilismo().
+                    "<br>Alergias: ".$this->getAlergias().
+                    "<br>Medicação: ".$this->getMedicacao().
+                    "<br>História Clínica: ".$this->getHistoriaClinica().
+                    "<br>Peso: ".$this->getPeso().
+                    "<br>Altura: ".$this->getAltura().
+                    "<br>";
             return $str;
         }
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Medico (mediNome, mediCrm, mediEspecializacao, mediEmail, mediSenha) VALUES (:mediNome, :mediCrm, :mediEspecializacao, :mediEmail, :mediSenha)";
+            $sql = "INSERT INTO Paciente (paciNome, paciNascimento, paciEstado, paciCidade, paciEndereco, paciTelefone, paciComorbidades, paciTabagismo, paciEtilismo, paciAlergias, paciMedicacao, paciHistoriaClinica, paciPeso, paciAltura) VALUES () VALUES (:paciNome, :paciNascimento, :paciEstado, :paciCidade, :paciEndereco, :paciTelefone, :paciComorbidades, :paciTabagismo, :paciEtilismo, :paciAlergias, :paciMedicacao, :paciHistoriaClinica, :paciPeso, :paciAltura)";
             $params = array(
-                ":mediNome" => $this->getNome(),
-                ":mediCrm" => $this->getCrm(),
-                ":mediEspecializacao" => $this->getEspecializacao(),
-                "mediTelefone" => $this->getTelefone(),
-                ":mediEmail" => $this->getEmail(),
-                ":mediSenha" => $this->getSenha()
+                ":paciNome" => $this->getNome(),
+                ":paciNascimento" => $this->getNascimento(),
+                ":paciEstado" => $this->getEstado(),
+                ":paciCidade" => $this->getCidade(),
+                ":paciEndereco" => $this->getEndereco(),
+                ":paciTelefone" => $this->getTelefone(),
+                ":paciComorbidades" => $this->getComorbidades(),
+                ":paciTabagismo" => $this->getTabagismo(),
+                ":paciEtilismo" => $this->getEtilismo(),
+                ":paciAlergias" => $this->getAlergias(),
+                ":paciMedicacao" => $this->getMedicacao(),
+                ":paciHistoriaClinica" => $this->getHistoriaClinica(),
+                ":paciPeso" => $this->getPeso(),
+                ":paciAltura" => $this->getAltura()
             );
             return Database::comando($sql, $params);
         }
 
         public function update(){
-            $sql = "UPDATE Medico SET mediNome = :mediNome, mediCrm = :mediCrm, mediEspecializacao = :mediEspecializacao, mediTelefone = :mediTelefone, mediEmail = :mediEmail, mediTelefone = :mediTelefone, mediSenha = :mediSenha WHERE mediId = :mediId";
+            $sql = "UPDATE Paciente SET paciNome = :paciNome, paciNascimento = :paciNascimento, paciEstado = :paciEstado, paciCidade = :paciCidade, paciEndereco = :paciEndereco, paciTelefone = :paciTelefone, paciComorbidades = :paciComorbidades, paciTabagismo = :paciTabagismo, paciEtilismo = :paciEtilismo, paciAlergias = :paciAlergias, paciMedicacao = :paciMedicacao, paciHistoriaClinica = :paciHistoriaClinica, paciPeso = :paciPeso, paciAltura = :paciAltura WHERE paciId = :paciId";
             $params = array(
-                ":mediId" => $this->getId(),
-                ":mediNome" => $this->getNome(),
-                ":mediCrm" => $this->getCrm(),
-                ":mediEspecializacao" => $this->getEspecializacao(),
-                ":mediTelefone" => $this->getTelefone(),
-                ":mediEmail" => $this->getEmail(),
-                ":mediSenha" => $this->getSenha()
+                ":paciId" => $this->getId(),
+                ":paciNome" => $this->getNome(),
+                ":paciNascimento" => $this->getNascimento(),
+                ":paciEstado" => $this->getEstado(),
+                ":paciCidade" => $this->getCidade(),
+                ":paciEndereco" => $this->getEndereco(),
+                ":paciTelefone" => $this->getTelefone(),
+                ":paciComorbidades" => $this->getComorbidades(),
+                ":paciTabagismo" => $this->getTabagismo(),
+                ":paciEtilismo" => $this->getEtilismo(),
+                ":paciAlergias" => $this->getAlergias(),
+                ":paciMedicacao" => $this->getMedicacao(),
+                ":paciHistoriaClinica" => $this->getHistoriaClinica(),
+                ":paciPeso" => $this->getPeso(),
+                ":paciAltura" => $this->getAltura()
             );
             return Database::comando($sql, $params);
         }
 
         public function delete(){
-            $sql = "DELETE FROM Medico WHERE mediId = :mediId";
+            $sql = "DELETE FROM Paciente WHERE paciId = :paciId";
             $params = array(
-                ":mediId" => $this->getId()
+                ":paciId" => $this->getId()
             );
             return Database::comando($sql, $params);
         }
@@ -133,47 +238,37 @@
        
         //Métodos de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
-            $sql = "SELECT * FROM Medico";
+            $sql = "SELECT * FROM Paciente";
             if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " WHERE mediId like :pesquisa"; break;
-                    case(2): $sql .= " WHERE mediNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " WHERE mediCrm like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(4): $sql .= " WHERE mediEspecializacao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(5): $sql .= " WHERE mediTelefone like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(6): $sql .= " WHERE mediEmail like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(7): $sql .= " WHERE mediSenha like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(1): $sql .= " WHERE paciId like :pesquisa"; break;
+                    case(2): $sql .= " WHERE paciNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(3): $sql .= " WHERE paciNascimento like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " WHERE paciEstado like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(5): $sql .= " WHERE paciCidade like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(6): $sql .= " WHERE paciEndereco like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(7): $sql .= " WHERE paciTelefone like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(8): $sql .= " WHERE paciComorbidades like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(9): $sql .= " WHERE paciTabagismo like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(10): $sql .= " WHERE paciEtilismo like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(11): $sql .= " WHERE paciAlergias like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(12): $sql .= " WHERE paciMedicacao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(13): $sql .= " WHERE paciHistoriaClinica like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(14): $sql .= " WHERE paciPeso like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(15): $sql .= " WHERE paciAltura like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
-                $sql .= " ORDER BY mediId";
+                $sql .= " ORDER BY paciId";
                 $params = array();
             }
             return Database::consulta($sql, $params);
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM Medico WHERE mediId = :mediId";
-            $params = array(':mediId'=>$id);
+            $sql = "SELECT * FROM Paciente WHERE paciId = :paciId";
+            $params = array(':paciId'=>$id);
             return Database::consulta($sql, $params);
-        }
-
-
-        //Métodos de autenticação
-        public static function autenticar($email, $senha){
-            $sql = "SELECT mediId FROM Medico WHERE mediEmail = :mediEmail AND mediSenha = :mediSenha";
-            $params = array(
-                ':mediEmail' => $email,
-                ':mediSenha' => $senha
-            );
-            session_start();
-            if (Database::consulta($sql, $params)) {
-                $_SESSION['mediId'] = Database::consulta($sql, $params)[0]['mediId'];
-                return true;
-            } else {
-                $_SESSION['mediId'] = "";
-                return false;
-            }
         }
     }
 ?>

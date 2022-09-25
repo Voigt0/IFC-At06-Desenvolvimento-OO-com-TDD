@@ -1,23 +1,20 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Medico extends Padrao{
+    class Relatorio extends Padrao{
         private $id;
-        private $nome;
-        private $crm;
-        private $especializacao;
-        private $telefone;
-        private $email;
-        private $senha;
+        private $descricao;
+        private $medicamentos;
+        private $exames;
+        private $consulta_consId;
 
-        public function __construct($id, $nome, $crm, $especializacao, $telefone, $email, $senha) {
+
+        public function __construct($id, $descricao, $medicamentos, $exames, $consulta_consId) {
             $this->setId($id);
-            $this->setNome($nome);
-            $this->setCrm($crm);
-            $this->setEspecializacao($especializacao);
-            $this->setTelefone($telefone);
-            $this->setEmail($email);
-            $this->setSenha($senha);
+            $this->setDescricao($descricao);
+            $this->setMedicamentos($medicamentos);
+            $this->setExames($exames);
+            $this->setConsulta_consId($consulta_consId);
         }  
         
 
@@ -26,28 +23,20 @@
             return $this->id;
         }
 
-        public function getNome() {
-            return $this->nome;
+        public function getDescricao() {
+            return $this->descricao;
         }
 
-        public function getCrm() {
-            return $this->crm;
+        public function getMedicamentos() {
+            return $this->medicamentos;
         }
 
-        public function getEspecializacao() {
-            return $this->especializacao;
+        public function getExames() {
+            return $this->exames;
         }
 
-        public function getTelefone() {
-            return $this->telefone;
-        }
-
-        public function getEmail() {
-            return $this->email;
-        }
-
-        public function getSenha() {
-            return $this->senha;
+        public function getConsulta_consId() {
+            return $this->consulta_consId;
         }
 
 
@@ -55,77 +44,64 @@
             $this->id = $id;
         }
 
-        public function setNome($nome) {
-            $this->nome = $nome;
-        }
-        
-        
-        public function setCrm($crm) {
-            $this->crm = $crm;
-        }
-        
-        public function setEspecializacao($especializacao) {
-            $this->especializacao = $especializacao;
-        }
-        
-        public function setTelefone($telefone) {
-            $this->telefone = $telefone;
+        public function setDescricao($descricao) {
+            $this->descricao = $descricao;
         }
 
-        public function setEmail($email) {
-            $this->email = $email;
+        public function setMedicamentos($medicamentos) {
+            $this->medicamentos = $medicamentos;
         }
 
-        public function setSenha($senha) {
-            $this->senha = $senha;
+        public function setExames($exames) {
+            $this->exames = $exames;
+        }
+
+        public function setConsulta_consId($consulta_consId) {
+            $this->consulta_consId = $consulta_consId;
         }
 
 
         //Método toString para exibir os dados do objeto
         public function __toString() {
-            $str = "<br>[Médico]<br>".
+            $str = "<br>[Relatório]<br>".
                     "<br>ID: ".$this->getId().
-                    "<br>Nome: ".$this->getNome().
-                    "<br>CRM: ".$this->getCrm().
-                    "<br>Especialização: ".$this->getEspecializacao().
-                    "<br>Telefone: ".$this->getTelefone().
-                    "<br>Email: ".$this->getEmail().
-                    "<br>Senha: ".$this->getSenha();
+                    "<br>Descrição: ".$this->getDescricao().
+                    "<br>Medicamentos: ".$this->getMedicamentos().
+                    "<br>Exames: ".$this->getExames().
+                    "<br>Consulta: ".$this->getConsulta_consId().
+                    "<br>";
             return $str;
         }
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Medico (mediNome, mediCrm, mediEspecializacao, mediEmail, mediSenha) VALUES (:mediNome, :mediCrm, :mediEspecializacao, :mediEmail, :mediSenha)";
+            $sql = "INSERT INTO Relatorio (relaId, relaDescricao, relaMedicamentos, relaExames, Consulta_consId) VALUES (:relaId, :relaDescricao, :relaMedicamentos, :relaExames, :Consulta_consId)";
             $params = array(
-                ":mediNome" => $this->getNome(),
-                ":mediCrm" => $this->getCrm(),
-                ":mediEspecializacao" => $this->getEspecializacao(),
-                "mediTelefone" => $this->getTelefone(),
-                ":mediEmail" => $this->getEmail(),
-                ":mediSenha" => $this->getSenha()
+                ":relaId" => $this->getId(),
+                ":relaDescricao" => $this->getDescricao(),
+                ":relaMedicamentos" => $this->getMedicamentos(),
+                ":relaExames" => $this->getExames(),
+                ":Consulta_consId" => $this->getConsulta_consId()
             );
             return Database::comando($sql, $params);
         }
 
         public function update(){
-            $sql = "UPDATE Medico SET mediNome = :mediNome, mediCrm = :mediCrm, mediEspecializacao = :mediEspecializacao, mediTelefone = :mediTelefone, mediEmail = :mediEmail, mediTelefone = :mediTelefone, mediSenha = :mediSenha WHERE mediId = :mediId";
+            $sql = "UPDATE Relatorio SET relaDescricao = :relaDescricao, relaMedicamentos = :relaMedicamentos, relaExames = :relaExames, Consulta_consId = :Consulta_consId, WHERE relaId = :relaId";
             $params = array(
-                ":mediId" => $this->getId(),
-                ":mediNome" => $this->getNome(),
-                ":mediCrm" => $this->getCrm(),
-                ":mediEspecializacao" => $this->getEspecializacao(),
-                ":mediTelefone" => $this->getTelefone(),
-                ":mediEmail" => $this->getEmail(),
-                ":mediSenha" => $this->getSenha()
+                ":relaId" => $this->getId(),
+                ":relaDescricao" => $this->getDescricao(),
+                ":relaMedicamentos" => $this->getMedicamentos(),
+                ":relaExames" => $this->getExames(),
+                ":Consulta_consId" => $this->getConsulta_consId()
             );
             return Database::comando($sql, $params);
         }
 
         public function delete(){
-            $sql = "DELETE FROM Medico WHERE mediId = :mediId";
+            $sql = "DELETE FROM Relatorio WHERE relaId = :relaId";
             $params = array(
-                ":mediId" => $this->getId()
+                ":relaId" => $this->getId()
             );
             return Database::comando($sql, $params);
         }
@@ -133,47 +109,27 @@
        
         //Métodos de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
-            $sql = "SELECT * FROM Medico";
+            $sql = "SELECT * FROM Relatorio";
             if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " WHERE mediId like :pesquisa"; break;
-                    case(2): $sql .= " WHERE mediNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " WHERE mediCrm like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(4): $sql .= " WHERE mediEspecializacao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(5): $sql .= " WHERE mediTelefone like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(6): $sql .= " WHERE mediEmail like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(7): $sql .= " WHERE mediSenha like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(1): $sql .= " WHERE relaId like :pesquisa"; break;
+                    case(2): $sql .= " WHERE relaDescricao like :pesquisa"; break;
+                    case(3): $sql .= " WHERE relaMedicamentos like :pesquisa"; break;
+                    case(4): $sql .= " WHERE relaExames like :pesquisa"; break;
+                    case(5): $sql .= " WHERE Consulta_consId like :pesquisa"; break;    
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
-                $sql .= " ORDER BY mediId";
+                $sql .= " ORDER BY relaId";
                 $params = array();
             }
             return Database::consulta($sql, $params);
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM Medico WHERE mediId = :mediId";
-            $params = array(':mediId'=>$id);
+            $sql = "SELECT * FROM Relatorio WHERE relaId = :relaId";
+            $params = array(':relaId'=>$id);
             return Database::consulta($sql, $params);
-        }
-
-
-        //Métodos de autenticação
-        public static function autenticar($email, $senha){
-            $sql = "SELECT mediId FROM Medico WHERE mediEmail = :mediEmail AND mediSenha = :mediSenha";
-            $params = array(
-                ':mediEmail' => $email,
-                ':mediSenha' => $senha
-            );
-            session_start();
-            if (Database::consulta($sql, $params)) {
-                $_SESSION['mediId'] = Database::consulta($sql, $params)[0]['mediId'];
-                return true;
-            } else {
-                $_SESSION['mediId'] = "";
-                return false;
-            }
         }
     }
 ?>

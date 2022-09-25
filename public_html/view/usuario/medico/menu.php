@@ -1,3 +1,13 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
+            header("Location: ../login.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

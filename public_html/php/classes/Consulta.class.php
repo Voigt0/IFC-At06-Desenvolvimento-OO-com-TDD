@@ -8,7 +8,7 @@
         private $gravidade;
         private $estado;
         private $paciente_paciId;
-        private $medico_medId;
+        private $medico_mediId;
 
         public function __construct($id, $data, $horario, $gravidade, $estado, $paciente_paciId, $medico_medId) {
             $this->setId($id);
@@ -94,7 +94,7 @@
             return $str;
         }
 
-        
+
         //Métodos de persistência
         public function create(){
             $sql = "INSERT INTO Consulta (consId, consData, consHorario, consGravidade, consEstado, Paciente_paciId, Medico_mediId) VALUES (:consId, :consData, :consHorario, :consGravidade, :consEstado, :paciente_paciId, :medico_mediId)";

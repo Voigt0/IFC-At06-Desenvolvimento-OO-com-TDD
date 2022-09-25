@@ -1,3 +1,15 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(isset($_SESSION['mediId']) && $_SESSION['mediId'] != '') {
+            header("Location: medico/menu.php");
+        } else if(isset($_SESSION['receId']) && $_SESSION['receId'] != '') {
+            header("Location: recepcionista/menu.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +25,7 @@
         <div class="box">
             <div class="inner-box">
                 <div class="forms-wrap">
-                    <form action="" class="sign-in-form">
+                    <form method="post" action="../../php/controle/controle-login.php" class="sign-in-form">
                         <div class="logo">
                             <h4>DocGO!</h4>
                         </div>
@@ -29,9 +41,9 @@
                         <div class="actual-form">
 
                             <div class="input-radio">
-                                <input type="radio" id="tipo" name="tipo" value="1">
+                                <input required type="radio" id="tipo" name="tipo" value="medico">
                                 <label id="radio">Médico</label>
-                                <input type="radio" id="tipo" name="tipo" value="2">
+                                <input required type="radio" id="tipo" name="tipo" value="recepcionista">
                                 <label id="radio">Recepcionista</label>
                             </div>
 
@@ -49,7 +61,7 @@
                         </div>
                     </form>
 
-                    <form action="index.html" autocomplete="off" class="sign-up-form">
+                    <form method="post" action="../../php/controle/controle-cadastro.php" autocomplete="off" class="sign-up-form">
 
                         <div class="heading">
                             <h2>Cadastre-se</h2>
@@ -64,9 +76,9 @@
                             </div>
 
                             <div class="input-radio">
-                                <input type="radio" id="tipo" name="tipo" value="1">
+                                <input type="radio" id="tipo" name="tipo" value="medico">
                                 <label id="radio">Médico</label>
-                                <input type="radio" id="tipo" name="tipo" value="2">
+                                <input type="radio" id="tipo" name="tipo" value="recepcionista">
                                 <label id="radio">Recepcionista</label>
                             </div>
 

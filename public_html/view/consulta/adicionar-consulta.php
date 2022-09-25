@@ -21,7 +21,7 @@
             </ul>
         </nav>
 
-        <form method="" class="">
+        <form method="post" action="../../php/controle/controle-adicionar-consulta.php" class="">
             <div class="heading">
                 <h2>Adicione a consulta</h2>
             </div>
