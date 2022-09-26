@@ -135,11 +135,18 @@
        
         //Métodos de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
-            $sql = "SELECT * FROM Consulta";
+            $sql = "SELECT * FROM Consulta, Paciente, Medico
+                    WHERE Paciente_paciId = paciId AND Medico_mediId = mediId";
             if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " WHERE consId like :pesquisa"; break;
-                        
+                    case(1): $sql .= " AND consId like :pesquisa"; break;
+                    case(2): $sql .= " AND consData like :pesquisa"; break;
+                    case(3): $sql .= " AND consHorario like :pesquisa"; break;
+                    case(4): $sql .= " AND consGravidade like :pesquisa"; break;
+                    case(5): $sql .= " AND consEstado like :pesquisa"; break;
+                    case(6): $sql .= " AND Paciente_paciId like :pesquisa"; break;
+                    case(7): $sql .= " AND Medico_mediId like :pesquisa"; break;
+                    case(8): $sql .= " AND consEstado <> 1 AND Medico_mediId like :pesquisa"; break;
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {

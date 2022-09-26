@@ -76,9 +76,9 @@
                             </div>
 
                             <div class="input-radio">
-                                <input type="radio" id="tipo" name="tipo" value="medico">
+                                <input required type="radio" id="tipo" name="tipo" value="medico">
                                 <label id="radio">Médico</label>
-                                <input type="radio" id="tipo" name="tipo" value="recepcionista">
+                                <input required type="radio" id="tipo" name="tipo" value="recepcionista">
                                 <label id="radio">Recepcionista</label>
                             </div>
 

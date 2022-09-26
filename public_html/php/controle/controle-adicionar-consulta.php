@@ -3,7 +3,7 @@
     try {
         if($_POST['tipo'] == "medico") {
             //Cadastrar médico
-            $medi = new Medico('', $_POST['nome'], $_POST['crm'], $_POST['especializacao'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
+            $medi = new Consulta('', $_POST['nome'], $_POST['crm'], $_POST['especializacao'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
             $medi->create();
             header("Location: ../../view/usuario/login.php?msg=Usuário cadastrado com sucesso!");
         } else if($_POST['tipo'] == 'recepcionista') {

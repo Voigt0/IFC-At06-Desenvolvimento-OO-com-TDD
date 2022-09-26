@@ -1,3 +1,14 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
+            header("Location: ../login.php");
+        }
+    }
+    include_once (__DIR__ ."/../../php/utils/autoload.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +32,35 @@
             </ul>
         </nav>
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Gravidade</th>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+            $tabela = Consulta::consultar(8, $_SESSION['mediId']);
+            foreach($tabela as $key => $value) {
+        ?>
+        <tr>
+            <th><?php echo $value['consId'];?></th>
+            <td><?php echo $value['consGravidade'];?></td>
+            <td><?php echo $value['paciNome'];?></td>
+            <td><?php echo $value['consData'];?></td>
+            <td><?php echo $value['consHorario'];?></td>
+            <td><?php echo $value['consEstado'];?></td>
+        </tr>
+        </tbody>
+        <?php
+            } 
+        ?> 
+   </table>
 </main>
 </body>
 </html>

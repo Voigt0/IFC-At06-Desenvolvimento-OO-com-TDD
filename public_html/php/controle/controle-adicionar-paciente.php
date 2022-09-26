@@ -1,17 +1,10 @@
 <?php
     include_once (__DIR__."/../utils/autoload.php");
     try {
-        if($_POST['tipo'] == "medico") {
-            //Cadastrar médico
-            $medi = new Medico('', $_POST['nome'], $_POST['crm'], $_POST['especializacao'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
-            $medi->create();
-            header("Location: ../../view/usuario/login.php?msg=Usuário cadastrado com sucesso!");
-        } else if($_POST['tipo'] == 'recepcionista') {
-            //Cadastrar recepcionista
-            $rece = new Recepcionista('', $_POST['nome'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
-            $rece->create();
-            header("Location: ../../view/usuario/login.php?msg=Usuário cadastrado com sucesso!");
-        }
+        //Cadastrar médico
+        $paci = new Paciente('', $_POST['nome'], $_POST['nascimento'], $_POST['estado'], $_POST['cidade'], $_POST['endereco'], $_POST['telefone'], $_POST['comorbidades'], $_POST['tabagismo'], $_POST['etilismo'], $_POST['alergias'], $_POST['medicacao'], $_POST['historiaClinica'], $_POST['peso'], $_POST['altura']);
+        $paci->create();
+        header("Location: ../../view/usuario/visualizar-paciente.php?msg=Paciente cadastrado com sucesso!");
     } catch(Exception $e) {
         echo "<h1>Erro ao cadastrar as informações.</h1><br> Erro:".$e->getMessage();
     }

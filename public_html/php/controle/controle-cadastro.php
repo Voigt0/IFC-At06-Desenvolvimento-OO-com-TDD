@@ -8,7 +8,7 @@
             header("Location: ../../view/usuario/login.php?msg=Usuário cadastrado com sucesso!");
         } else if($_POST['tipo'] == 'recepcionista') {
             //Cadastrar recepcionista
-            $rece = new Recepcionista('', $_POST['nome'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
+            $rece = new Recepcionista('', $_POST['nome'], $_POST['email'], $_POST['senha']);
             $rece->create();
             header("Location: ../../view/usuario/login.php?msg=Usuário cadastrado com sucesso!");
         }
