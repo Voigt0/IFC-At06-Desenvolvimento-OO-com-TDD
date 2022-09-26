@@ -48,9 +48,8 @@
                 </div>
 
                 <div class="input-radio">
-                    <p>Gravidade - Nível de dor</p>
+                    <p>Gravidade</p>
                     <input type="radio" id="consGravidade" name="consGravidade" value="1">
-                    <!-- <img src="../../img/png/5.png" class="img-gravidade"> -->
                     <label id="radio">1</label>
                     <input type="radio" id="consGravidade" name="consGravidade" value="2">
                     <label id="radio">2</label>

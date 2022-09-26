@@ -65,7 +65,7 @@
 
         </div>
         
-        <input type="submit" value="Encerrar sessão" class="btn">
+        <a href="../../../php/controle/controle-login.php?tipo=medico"><input class="btn" type="button" value="Encerrar sessão"></a>
         <input type="submit" value="Editar" class="btn">
     </div>
 </body>

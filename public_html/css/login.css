@@ -160,7 +160,9 @@ label {
     margin-left: 20%;
   }
 
-input[name="usuaTipo"] {
+
+
+input[name="tipo"] {
     accent-color: #90011e;
 }
   

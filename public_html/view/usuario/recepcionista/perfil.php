@@ -1,7 +1,3 @@
-<?php
-    $tipo = "Doutor";
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +20,7 @@
         </nav>   
         
         <div class="heading">
-            <h2>Olá, <?php echo $tipo; ?>!</h2>
+            <h2>Olá, Recepcionista!</h2>
             <a href=""><img src="../../img/icon/backIcon.svg" class="back"></a>
         </div>
 
@@ -35,37 +31,27 @@
         <div class="corpo">
             <div class="input-box">
                 <span >Nome completo</span>
-                <input required class="" type="text" name="nome" id="nome" value="Nome completo" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
-            </div>
-
-            <div class="input-box">
-                <span>CRM</span>
-                <input required class="" type="text" name="crm" id="crm" value="CRM" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
-            </div>
-            
-            <div class="input-box">
-                <span>Especialização</span>
-                <input required class="" type="text" name="especializacao" id="especializacao" value="Especialização" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
+                <input required class="" type="text" name="nome" id="nome" value="<?php if(!isset($_GET['update'])) {echo "disabled";}?>">
             </div>
 
             <div class="input-box">
                 <span>Telefone</span>
-                <input required class="" type="text" name="telefone" id="telefone" value="Telefone" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
+                <input required class="" type="text" name="telefone" id="telefone" value="<?php if(!isset($_GET['update'])) {echo "disabled";}?>">
             </div>
 
             <div class="input-box">
                 <span>E-mail</span>
-                <input required class="" type="text" name="email" id="email" value="E-mail" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
+                <input required class="" type="text" name="email" id="email" value="<?php if(!isset($_GET['update'])) {echo "disabled";}?>">
             </div>
 
             <div class="input-box">
                 <span>Senha</span>
-                <input required class="" type="text" name="senha" id="senha" value="Senha" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
+                <input required class="" type="text" name="senha" id="senha" value="<?php if(!isset($_GET['update'])) {echo "disabled";}?>"">
             </div>
 
         </div>
         
-        <input type="submit" value="Encerrar sessão" class="btn">
+        <a href="../../../php/controle/controle-login.php"><input class="btn" type="button" value="Encerrar sessão"></a>
         <input type="submit" value="Editar" class="btn">
     </div>
 </body>

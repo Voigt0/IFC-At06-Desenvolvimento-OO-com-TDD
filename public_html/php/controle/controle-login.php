@@ -1,5 +1,10 @@
 <?php
-    $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : "";
+    $tipo = "";
+    if(isset($_POST['tipo'])) {
+        $tipo = $_POST['tipo'];
+    } else if(isset($_GET['tipo'])) {
+        $tipo = $_GET['tipo'];
+    }
     $email = isset($_POST['email']) ? $_POST['email'] : "";
     $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
     

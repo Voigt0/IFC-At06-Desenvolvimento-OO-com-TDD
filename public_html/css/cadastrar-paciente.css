@@ -156,7 +156,7 @@ input[name="paciTabagismo"], input[name="paciEtilismo"] {
     background-color: #90011e;
 }
 
-input[type=text]{
+input[type=text], input[type=date]{
     width: 300px;
     height: 2rem;
 }

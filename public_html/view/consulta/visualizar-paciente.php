@@ -1,3 +1,16 @@
+<?php
+    //Verificar se login foi efetuado
+    session_set_cookie_params(0);
+    session_start();
+    if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
+        header("Location: ../usuario/login.php");
+    }
+
+    include_once (__DIR__."/../../php/utils/autoload.php");
+
+    $pesquisa = isset($_POST["pesquisa"]) ? $_POST["pesquisa"] : "";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +33,30 @@
                 <a href="../usuario/perfil.php" class="perfil-btn">Perfil</a>
             </ul>
         </nav>
-    </div>
+
+    <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+                $tabela = Paciente::consultar(2, $pesquisa);
+                foreach($tabela as $key => $value) {
+            ?>
+            <tr>
+                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>"><?php echo $value['paciNome'];?></td></a>
+                <td><?php echo $value['paciNascimento'];?></td>
+            </tr>
+            </tbody>
+            <?php
+                } 
+            ?> 
+       </table>
+       </div>
+
 </main>
 </body>
 </html>

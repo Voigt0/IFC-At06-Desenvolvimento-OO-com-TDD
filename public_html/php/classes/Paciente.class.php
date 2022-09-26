@@ -270,5 +270,32 @@
             $params = array(':paciId'=>$id);
             return Database::consulta($sql, $params);
         }
+
+        // public static function consultarTodos($pesquisa, $mediId){
+        //     $sql = "SELECT * FROM Paciente 
+        //             WHERE paciNome LIKE :paciNome 
+        //             AND Medico_mediId LIKE :mediId
+        //             ORDER BY paciNome";
+        //     $pesquisa = "%".$pesquisa."%";
+        //     $params = array(
+        //         ':paciNome'=>$pesquisa,
+        //         ':mediId'=>$mediId
+        //     );
+        //     return Database::consulta($sql, $params);
+        // }
+
+        //Métodos de validação
+        public static function validar($id) {
+            $sql = "SELECT * FROM Paciente WHERE paciId = :paciId";
+            $params = array(
+                ":paciId" => $id
+            );
+            if (Database::consulta($sql, $params)) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        }
     }
 ?>

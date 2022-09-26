@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
-    <link rel="stylesheet" href="../../css/visualizar-paciente.css">
+    <link rel="stylesheet" href="../../css/visualizar-consulta.css">
     <link rel="stylesheet" href="../../css/css-geral.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
@@ -31,36 +31,48 @@
                 <a href="../usuario/perfil.php" class="perfil-btn">Perfil</a>
             </ul>
         </nav>
-    </div>
-    <table>
-        <thead>
+
+        <div class="heading">
+            <h2>Visualizar consultas</h2>
+        </div>
+
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Gravidade</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+                $tabela = Consulta::consultar(8, $_SESSION['mediId']);
+                foreach($tabela as $key => $value) {
+
+                    if($value['consEstado'] == 0){
+                        $estado = "Não concluida";
+                    } else{
+                        $estado = "Concluida";
+                    }
+            ?>
             <tr>
-                <th>N°</th>
-                <th>Gravidade</th>
-                <th>Nome</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th>Estado</th>
+                <th><?php echo $value['consId'];?></th>
+                <td><?php echo $value['consGravidade'];?></td>
+                <td><a href="cadastrar-paciente.php"><?php echo $value['paciNome'];?></td></a>
+                <td><?php echo $value['consData'];?></td>
+                <td><?php echo $value['consHorario'];?></td>
+                <td><?php echo $estado;?></td>
             </tr>
-        </thead>
-        <tbody>
-        <?php 
-            $tabela = Consulta::consultar(8, $_SESSION['mediId']);
-            foreach($tabela as $key => $value) {
-        ?>
-        <tr>
-            <th><?php echo $value['consId'];?></th>
-            <td><?php echo $value['consGravidade'];?></td>
-            <td><?php echo $value['paciNome'];?></td>
-            <td><?php echo $value['consData'];?></td>
-            <td><?php echo $value['consHorario'];?></td>
-            <td><?php echo $value['consEstado'];?></td>
-        </tr>
-        </tbody>
-        <?php
-            } 
-        ?> 
-   </table>
+            </tbody>
+            <?php
+            
+                } 
+            ?> 
+       </table>
+    </div>
 </main>
 </body>
 </html>

@@ -32,37 +32,41 @@
         <div class="heading">
             <h2>O que deseja fazer?</h2>
         </div>
-        <div class="options">
-            <div class="option">
-                <a href="../../consulta/visualizar-consulta.php">
-                    <button type="button" class="menu-btn">
-                        <h4>Visualizar consultas</h4>
-                    </button>
-                </a>
-            </div>
-            <div class="option">
-                <a href="../../consulta/visualizar-paciente.php">
-                    <button type="button" class="menu-btn">
-                        <h4>Visualizar pacientes</h4>
-                    </button>
-                </a>
-            </div>
-            <div class="option">
-                <a href="perfil.php">
-                    <button type="button" class="menu-btn">
-                        <h4>Visualizar perfil</h4>
-                    </button>
-                </a>
-            </div>
-            <div class="option">
-                <a href="../../consulta/adicionar-consulta.php">
-                    <button type="button" class="menu-btn">
-                        <h4>Adicionar consulta</h4>
-                    </button>
-                </a>
-            </div>
-        </div>
-        
+    <div class="options">
+        <table>
+            <tr>
+                <td>
+                <section>
+                <div class="img-button"><a href="../../consulta/visualizar-consulta.php"><button class="botao"><img src="../../../img/icon/consulta.svg" width="70%"></button></a></div>
+                <div class="button"><a href="../../consulta/visualizar-consulta.php"><button class="" type="submit" id="" name="" value="">Visualizar consultas</button></a></div>
+                </section>
+                </td>
+                <td>
+                <section>
+                <div class="img-button"><a href="../../consulta/visualizar-paciente.php"><button class="botao"><img src="../../../img/icon/paciente.svg" width="70%"></button></a></div>
+                <div class="button"><a href="../../consulta/visualizar-paciente.php"><button class="" type="submit" id="" name="" value="">Visualizar Pacientes</button></a></div>
+                </section>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                <section>
+                <div class="img-button"><a href="../../consulta/adicionar-consulta.php"><button class="botao"><img src="../../../img/icon/adicionar-consulta.svg" width="70%"></button></a></div>
+                <div class="button"><a href="../../consulta/adicionar-consulta.php"><button class="" type="submit" id="" name="" value="">Adicionar Consulta</button></a></div>
+                </section>
+                </td>
+
+                <td>
+                <section>
+                <div class="img-button"><a href="perfil.php"><button class="botao"><img src="../../../img/icon/perfilIcon.svg" width="70%"></button></a></div>
+                <div class="button"><a href="perfil.php"><button class="" type="submit" id="" name="" value="">Visualizar Perfil</button></a></div>
+                </section>   
+                </td>
+            </tr>
+        </table>
     </div>
+    </div>
+
 </body>
 </html>

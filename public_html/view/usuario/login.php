@@ -83,7 +83,7 @@
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="crm" name="crm" value="" required>
+                                <input class="input-field" type="text" id="crm" name="crm" value="" pattern="[0-9]{5}-[A-Z]{2}" OnKeyPress="formatar('#####-##', this)" maxlength="8" required>
                                 <label>CRM (apenas para médicos)</label>
                             </div>
                             
@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="telefone" name="telefone" value="" required>
+                                <input class="input-field" type="text" id="telefone" name="telefone" value="" OnKeyPress="formatar('## # ####-####', this)" maxlength="14" required>
                                 <label>Telefone de contato</label>
                             </div>
 
