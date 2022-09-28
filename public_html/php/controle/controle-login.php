@@ -1,20 +1,11 @@
 <?php
-    $tipo = "";
-    if(isset($_POST['tipo'])) {
-        $tipo = $_POST['tipo'];
-    } else if(isset($_GET['tipo'])) {
-        $tipo = $_GET['tipo'];
-    }
+    $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : "";
     $email = isset($_POST['email']) ? $_POST['email'] : "";
     $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
-    
-    echo $tipo;
-    echo $email;
-    echo $senha;
 
     include_once (__DIR__."/../utils/autoload.php");
     try {
-        //Login do usuário com sucesso, Login do usuário sem sucesso, Logout do usuário
+        //Login do usuário com sucesso, Login do usuário sem sucesso
         if($tipo == "medico") {
             if(Medico::autenticar($email, $senha)) {
                 header("Location: ../../view/usuario/medico/menu.php?msg=Email logado com sucesso!");

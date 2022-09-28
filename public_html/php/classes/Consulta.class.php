@@ -161,5 +161,20 @@
             $params = array(':consId'=>$id);
             return Database::consulta($sql, $params);
         }
+
+        public static function visualizarConsultas($mediId, $estado = "") {
+            $sql = "SELECT * FROM Consulta LEFT JOIN Relatorio ON Consulta_consId = consId, Paciente, Medico
+                    WHERE Paciente_paciId = paciId 
+                    AND Medico_mediId = mediId 
+                    AND Medico_mediId = :mediId";
+            if ($estado == 0) {
+                $sql .= " AND consEstado = 0";
+            } else if($estado == 1) {
+                $sql .= " AND consEstado = 1";
+            }
+            $sql .= " ORDER BY consEstado ASC, consData DESC, consHorario ASC";
+            $params = array(':mediId'=>$mediId);
+            return Database::consulta($sql, $params);
+        }
     }
 ?>

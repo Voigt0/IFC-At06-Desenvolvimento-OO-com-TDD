@@ -1,3 +1,15 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(isset($_SESSION['mediId']) && $_SESSION['mediId'] != '') {
+            header("Location: view/usuario/medico/menu.php");
+        } else if(isset($_SESSION['receId']) && $_SESSION['receId'] != '') {
+            header("Location: view/usuario/recepcionista/menu.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

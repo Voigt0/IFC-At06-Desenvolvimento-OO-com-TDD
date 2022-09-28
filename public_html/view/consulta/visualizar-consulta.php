@@ -40,31 +40,35 @@
             <thead>
                 <tr>
                     <th>N°</th>
-                    <th>Gravidade</th>
                     <th>Nome</th>
+                    <th>Gravidade</th>
                     <th>Data</th>
                     <th>Horário</th>
-                    <th>Estado</th>
+                    <th>Estado</th>                    
+                    <th>Relatório</th>
                 </tr>
             </thead>
             <tbody>
             <?php 
-                $tabela = Consulta::consultar(8, $_SESSION['mediId']);
+                $tabela = Consulta::visualizarConsultas($_SESSION['mediId'], 0);
                 foreach($tabela as $key => $value) {
-
-                    if($value['consEstado'] == 0){
-                        $estado = "Não concluida";
-                    } else{
-                        $estado = "Concluida";
-                    }
             ?>
             <tr>
                 <th><?php echo $value['consId'];?></th>
+                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId']?>"><?php echo $value['paciNome'];?></td></a>
                 <td><?php echo $value['consGravidade'];?></td>
-                <td><a href="cadastrar-paciente.php"><?php echo $value['paciNome'];?></td></a>
                 <td><?php echo $value['consData'];?></td>
                 <td><?php echo $value['consHorario'];?></td>
-                <td><?php echo $estado;?></td>
+                <td><?php if($value['consEstado'] == 0){echo "<a href='../../php/controle/controle-concluir-consulta'>Não concluida</a>";}else{echo "Concluida";}?></td>
+                <td>
+                    <?php
+                        if(!empty($value['relaId'])) {
+                            echo "<a href='../relatorio/configurar-relatorio.php?relaId=".$value['relaId']."'>Visualizar</a>";
+                        } else {
+                            echo "<a href='../../php/controle-gerar-relatorio.php?consId=".$value['consId']."'>Gerar</a>";
+                        }
+                    ?>
+                </td>
             </tr>
             </tbody>
             <?php

@@ -1,9 +1,11 @@
 <?php
     //Verificar se login foi efetuado
-    session_set_cookie_params(0);
-    session_start();
-    if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
-        header("Location: ../usuario/login.php");
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
+            header("Location: ../login.php");
+        }
     }
 
     include_once (__DIR__."/../../php/utils/autoload.php");
