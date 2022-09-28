@@ -19,6 +19,7 @@
             $this->setEstado($estado);
             $this->setPaciente_paciId($paciente_paciId);
             $this->setMedico_medId($medico_medId);
+            $this->setRelatorio();
         }  
         
 
