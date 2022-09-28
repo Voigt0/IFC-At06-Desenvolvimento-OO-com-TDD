@@ -75,9 +75,8 @@
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Relatorio (relaId, relaDescricao, relaMedicamentos, relaExames, Consulta_consId) VALUES (:relaId, :relaDescricao, :relaMedicamentos, :relaExames, :Consulta_consId)";
+            $sql = "INSERT INTO Relatorio (relaDescricao, relaMedicamentos, relaExames, Consulta_consId) VALUES (:relaDescricao, :relaMedicamentos, :relaExames, :Consulta_consId)";
             $params = array(
-                ":relaId" => $this->getId(),
                 ":relaDescricao" => $this->getDescricao(),
                 ":relaMedicamentos" => $this->getMedicamentos(),
                 ":relaExames" => $this->getExames(),
@@ -87,7 +86,7 @@
         }
 
         public function update(){
-            $sql = "UPDATE Relatorio SET relaDescricao = :relaDescricao, relaMedicamentos = :relaMedicamentos, relaExames = :relaExames, Consulta_consId = :Consulta_consId, WHERE relaId = :relaId";
+            $sql = "UPDATE Relatorio SET relaDescricao = :relaDescricao, relaMedicamentos = :relaMedicamentos, relaExames = :relaExames, Consulta_consId = :Consulta_consId WHERE relaId = :relaId";
             $params = array(
                 ":relaId" => $this->getId(),
                 ":relaDescricao" => $this->getDescricao(),
@@ -130,6 +129,20 @@
             $sql = "SELECT * FROM Relatorio WHERE relaId = :relaId";
             $params = array(':relaId'=>$id);
             return Database::consulta($sql, $params);
+        }
+
+         //Métodos de validação
+         public static function validar($id) {
+            $sql = "SELECT * FROM Relatorio WHERE relaId = :relaId";
+            $params = array(
+                ":relaId" => $id
+            );
+            if (Database::consulta($sql, $params)) {
+                return true;
+            } else {
+                return false;
+            }
+            
         }
     }
 ?>

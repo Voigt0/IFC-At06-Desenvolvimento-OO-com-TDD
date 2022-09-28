@@ -46,7 +46,7 @@
             <h2>Adicione o paciente</h2>
         </div>
         
-        <form method="" class="">
+        <form method="post" action="../../php/controle/controle-configurar-paciente.php?<?php if(isset($data)){echo "acao=update&&paciId=".$data['paciId']."";}?>" class="">
             <div class="form-box">
                 <div class="input-box">
                     <label for="nome">Nome completo</label>
@@ -75,7 +75,7 @@
 
                 <div class="input-box">
                     <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone" name="telefone" class="input-field" required value="<?php if(isset($data)) { echo $data['paciTelefone']; }?>" placeholder="Insira o telefone do paciente">
+                    <input type="text" OnKeyPress="formatar('## # ####-####', this)" maxlength="14" id="telefone" name="telefone" class="input-field" required value="<?php if(isset($data)) { echo $data['paciTelefone']; }?>" placeholder="Insira o telefone do paciente">
                 </div>
 
                 <div class="input-box">
@@ -130,5 +130,6 @@
 
     </div>
     </main>
+    <script src="../../js/cadastrar-paciente.js"></script>
 </body>
 </html>

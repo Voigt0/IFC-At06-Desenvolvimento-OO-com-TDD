@@ -27,9 +27,7 @@
             <img src="img/favicon/android-chrome-192x192.png" class="logo">
             <ul>
                 <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
-                <li><a href="#">Consultar médicos</a></li>
-                <!-- <li><a href="view/usuario/perfil.php">Perfil (temporario)</a></li>
-                <li><a href="view/usuario/menu.php">Menu (temporario)</a></li> -->
+                <li><a href="view/usuario/medico/visualizar-medicos.php">Consultar médicos</a></li>
                 <a href="view/usuario/login.php" class="login-btn">Login</a>
             </ul>
         </nav>

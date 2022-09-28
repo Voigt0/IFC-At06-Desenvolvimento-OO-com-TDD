@@ -44,6 +44,7 @@
             <img src="../../../img/png/perfil.png" class="img">
         </div>
 
+        <form method="post" action="../../../php/controle/controle-perfil-medico.php?acao=update">
         <div class="corpo">
             <div class="input-box">
                 <span >Nome completo</span>
@@ -76,9 +77,28 @@
             </div>
 
         </div>
+
+
+        <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>">
+        <button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
+
+                <br>
+                    <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button></div>
+                <br>
+                    
+                <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="return confirm('Deseja excluir o perfil?')" href="../../../php/controle/controle-perfil-medico.php?acao=delete"> Excluir perfil</a></button></div>                  
+
+                    
+                <div class="button"><a href="../../php/controle/controle-logout.php"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>
+
         
-        <a href="../../../php/controle/controle-logout.php?"><input class="btn" type="button" value="Encerrar sessão"></a>
-        <input type="submit" value="Editar" class="btn">
+        <!-- <a href="../../../php/controle/controle-logout.php?"><input class="btn" type="button" value="Encerrar sessão"></a>
+        <a href="../../../php/controle/controle-perfil-medico.php?acao=editar"><input class="btn" type="button" value="Editar"></a> -->
+        </form>
     </div>
 </body>
 </html>
+
+
+<!-- 
+ -->

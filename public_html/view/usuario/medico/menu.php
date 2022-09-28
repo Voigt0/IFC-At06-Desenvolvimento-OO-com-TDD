@@ -23,7 +23,7 @@
         <nav>
             <img src="../../../img/favicon/android-chrome-192x192.png" class="logo">
             <ul>
-                <li><a href="#">Sobre a equipe</a></li>
+                <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
                 <li><a href="../../consulta/visualizar-paciente.php">Consultar pacientes</a></li>
                 <a href="perfil.php" class="perfil-btn">Perfil</a>
             </ul>
@@ -52,8 +52,8 @@
             <tr>
                 <td>
                 <section>
-                <div class="img-button"><a href="../../consulta/adicionar-consulta.php"><button class="botao"><img src="../../../img/icon/adicionar-consulta.svg" width="70%"></button></a></div>
-                <div class="button"><a href="../../consulta/adicionar-consulta.php"><button class="" type="submit" id="" name="" value="">Adicionar Consulta</button></a></div>
+                <div class="img-button"><a href="../../consulta/configurar-consulta.php"><button class="botao"><img src="../../../img/icon/adicionar-consulta.svg" width="70%"></button></a></div>
+                <div class="button"><a href="../../consulta/configurar-consulta.php"><button class="" type="submit" id="" name="" value="">Adicionar Consulta</button></a></div>
                 </section>
                 </td>
 

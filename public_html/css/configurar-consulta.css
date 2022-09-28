@@ -72,63 +72,37 @@ nav ul li a:hover{
     background-image: linear-gradient(45deg, #c430d7, #df4881);
 }
 
-.corpo{
+
+
+h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.form-box{
+    padding: 3rem;
+    border: 3px solid #000;
+    width: 300px;
+}
+
+form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* flex-direction: column; */
-    /* gap: 3px; */
-    flex-wrap: wrap;
-    width: 50%;
-    padding: 1rem;
-
+    align-items: center;
 }
 
-.img-perfil{
-    width: 40%;
-    float: left;
-}
-
-.img{
-    width: 350px;
-}
 .heading{
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: baseline;
 }
 
-h2{
-    font-size: 3rem;
-    font-weight: 600;
-}
 
 .input-box{
-    position: relative;
-    width: 250px;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
-}
-
-.input-box input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid black;
-    background: #df48822a;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1em;
-}
-
-.input-box span{
-    left: 0;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: black;
 }
 
 
@@ -141,13 +115,21 @@ h2{
     cursor: pointer;
     border-radius: 0.8rem;
     font-size: 0.8rem;
-    /* margin-bottom: 2rem; */
     transition: 0.3s;
-    margin: 1.4rem;
+    margin: 1rem;
     float: right;
   }
   
-  .btn:hover {
+.btn:hover {
     background-color: #90011e;
-  }
+}
   
+
+.img-gravidade{
+    width: 3rem;
+}
+
+.footer-form{
+    display: flex;
+    justify-content: center;
+}

@@ -4,7 +4,7 @@
     session_start();
     if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
         header("Location: ../usuario/login.php");
-    }
+    } 
 
     include_once (__DIR__."/../../php/utils/autoload.php");
 
@@ -39,6 +39,8 @@
                 <tr>
                     <th>Nome</th>
                     <th>Nascimento</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +50,9 @@
             ?>
             <tr>
                 <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>"><?php echo $value['paciNome'];?></td></a>
-                <td><?php echo $value['paciNascimento'];?></td>
+                <td><?php echo date("d/m/Y",strtotime($value['paciNascimento']));?></td>
+                <td class="img"><a href='cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
+                <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
             </tr>
             </tbody>
             <?php

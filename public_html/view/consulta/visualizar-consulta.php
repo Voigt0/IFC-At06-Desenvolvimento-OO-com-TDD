@@ -27,13 +27,14 @@
             <img src="../../img/favicon/android-chrome-192x192.png" class="logo">
             <ul>
                 <li><a href="#">Sobre a equipe</a></li>
-                <li><a href="../consulta/addPaciente.php">Consultar pacientes</a></li>
+                <li><a href="../consulta/visualizar-paciente.php">Consultar pacientes</a></li>
                 <a href="../usuario/perfil.php" class="perfil-btn">Perfil</a>
             </ul>
         </nav>
 
         <div class="heading">
             <h2>Visualizar consultas</h2>
+            <a href="cadastrar-paciente.php"><button>Adicionar paciente</button></a>
         </div>
 
         <table class="content-table">
@@ -46,29 +47,41 @@
                     <th>Horário</th>
                     <th>Estado</th>                    
                     <th>Relatório</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
             <?php 
-                $tabela = Consulta::visualizarConsultas($_SESSION['mediId'], 0);
+                $tabela = Consulta::visualizarConsultas($_SESSION['mediId']);
                 foreach($tabela as $key => $value) {
             ?>
             <tr>
                 <th><?php echo $value['consId'];?></th>
-                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId']?>"><?php echo $value['paciNome'];?></td></a>
+                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId']?>"><?php echo $value['paciNome'];?></a></td>
                 <td><?php echo $value['consGravidade'];?></td>
-                <td><?php echo $value['consData'];?></td>
+                <td><?php echo date("d/m/Y",strtotime($value['consData']));?></td>
                 <td><?php echo $value['consHorario'];?></td>
-                <td><?php if($value['consEstado'] == 0){echo "<a href='../../php/controle/controle-concluir-consulta'>Não concluida</a>";}else{echo "Concluida";}?></td>
+                <td>
+                    <?php 
+                        if($value['consEstado'] == 0){
+                            echo "<a href='../../php/controle/controle-concluir-consulta.php?consId=$value[consId]&consEstado=$value[consEstado]'>Não concluída</a>";
+                        }else{
+                            echo "<a href='../../php/controle/controle-concluir-consulta.php?consId=$value[consId]&consEstado=$value[consEstado]'>Concluída</a>";
+                        }
+                    ?>
+                </td>
                 <td>
                     <?php
                         if(!empty($value['relaId'])) {
                             echo "<a href='../relatorio/configurar-relatorio.php?relaId=".$value['relaId']."'>Visualizar</a>";
                         } else {
-                            echo "<a href='../../php/controle-gerar-relatorio.php?consId=".$value['consId']."'>Gerar</a>";
+                            echo "<a href='../../php/controle/controle-configurar-relatorio.php?consId=".$value['consId']."'>Gerar</a>";
                         }
                     ?>
                 </td>
+                <td class="img"><a href='configurar-consulta.php?consId=<?php echo $value['consId'];?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
+                <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-consulta.php?consId=<?php echo $value['consId'];?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
             </tr>
             </tbody>
             <?php

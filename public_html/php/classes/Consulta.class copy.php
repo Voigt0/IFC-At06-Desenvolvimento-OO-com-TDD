@@ -9,8 +9,9 @@
         private $estado;
         private $paciente_paciId;
         private $medico_mediId;
+        private $relatorio;
 
-        public function __construct($id, $data, $horario, $gravidade, $estado, $paciente_paciId, $medico_medId) {
+        public function __construct($id, $data, $horario, $gravidade, $estado, $paciente_paciId, $medico_medId, Relatorio $relatorio) {
             $this->setId($id);
             $this->setData($data);
             $this->setHorario($horario);

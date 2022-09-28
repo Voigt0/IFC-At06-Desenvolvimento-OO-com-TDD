@@ -1,5 +1,6 @@
 <?php 
     function selectBox($tabela, $rows, $id=null) {
+        
         $str = "<option value='0'>Selecione</option>";
         $sql = "SELECT * FROM ".$tabela;
         $dados = Database::consulta($sql);

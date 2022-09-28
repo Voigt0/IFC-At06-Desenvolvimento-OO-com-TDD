@@ -185,7 +185,7 @@
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Paciente (paciNome, paciNascimento, paciEstado, paciCidade, paciEndereco, paciTelefone, paciComorbidades, paciTabagismo, paciEtilismo, paciAlergias, paciMedicacao, paciHistoriaClinica, paciPeso, paciAltura) VALUES () VALUES (:paciNome, :paciNascimento, :paciEstado, :paciCidade, :paciEndereco, :paciTelefone, :paciComorbidades, :paciTabagismo, :paciEtilismo, :paciAlergias, :paciMedicacao, :paciHistoriaClinica, :paciPeso, :paciAltura)";
+            $sql = "INSERT INTO Paciente (paciNome, paciNascimento, paciEstado, paciCidade, paciEndereco, paciTelefone, paciComorbidades, paciTabagismo, paciEtilismo, paciAlergias, paciMedicacao, paciHistoriaClinica, paciPeso, paciAltura) VALUES (:paciNome, :paciNascimento, :paciEstado, :paciCidade, :paciEndereco, :paciTelefone, :paciComorbidades, :paciTabagismo, :paciEtilismo, :paciAlergias, :paciMedicacao, :paciHistoriaClinica, :paciPeso, :paciAltura)";
             $params = array(
                 ":paciNome" => $this->getNome(),
                 ":paciNascimento" => $this->getNascimento(),
@@ -271,18 +271,6 @@
             return Database::consulta($sql, $params);
         }
 
-        // public static function consultarTodos($pesquisa, $mediId){
-        //     $sql = "SELECT * FROM Paciente 
-        //             WHERE paciNome LIKE :paciNome 
-        //             AND Medico_mediId LIKE :mediId
-        //             ORDER BY paciNome";
-        //     $pesquisa = "%".$pesquisa."%";
-        //     $params = array(
-        //         ':paciNome'=>$pesquisa,
-        //         ':mediId'=>$mediId
-        //     );
-        //     return Database::consulta($sql, $params);
-        // }
 
         //Métodos de validação
         public static function validar($id) {
@@ -295,7 +283,6 @@
             } else {
                 return false;
             }
-            
         }
     }
 ?>
