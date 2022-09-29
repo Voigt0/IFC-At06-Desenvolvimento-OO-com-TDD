@@ -24,8 +24,7 @@
 </head>
 <body>
 <main>
-    <div class="hero">
-        <!-- Navbar -->
+    <div class="corpo">
         <nav>
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
@@ -33,7 +32,7 @@
                 <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
                 <li><a href="configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
-                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
+                <a href="../usuario/medico/perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 

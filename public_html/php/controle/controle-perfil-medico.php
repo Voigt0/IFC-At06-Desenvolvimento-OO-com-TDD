@@ -5,7 +5,7 @@
     include_once (__DIR__."/../utils/autoload.php");
     try {
         if($acao == "update") {
-            //Editar médico
+            //Editar médico 
             $medi = new Medico($_SESSION['mediId'], $_POST['nome'], $_POST['crm'], $_POST['especializacao'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
             $dbme = new MedicoBD($medi);
             $dbme->update();

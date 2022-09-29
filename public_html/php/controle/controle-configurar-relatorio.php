@@ -22,5 +22,4 @@
     } catch(Exception $e) {
         echo "<h1>Erro ao modificar as informações.</h1><br> Erro:".$e->getMessage();
     }
-
 ?>

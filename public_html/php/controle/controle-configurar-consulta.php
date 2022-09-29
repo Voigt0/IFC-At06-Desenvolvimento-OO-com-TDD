@@ -5,7 +5,7 @@
     include_once (__DIR__."/../utils/autoload.php");
     try {
         if($acao == "update") {
-            //Atualizar Consulta
+            //Atualizar Consulta 
             $cons = new Consulta($_GET['consId'], $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], $_POST['consEstado'], $_POST['Paciente_paciId'], $_SESSION['mediId']);
             $cons->update();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta atualizada com sucesso!");

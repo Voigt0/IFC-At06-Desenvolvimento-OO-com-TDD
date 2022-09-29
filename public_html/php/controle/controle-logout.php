@@ -2,7 +2,7 @@
     include_once (__DIR__."/../utils/autoload.php");
     session_start();
     try {
-        //Logout de usuário
+        //Logout de usuário 
         session_destroy();    
         header("Location: ../../index.php?msg=Logout realizado com sucesso!");
     } catch(Exception $e) {

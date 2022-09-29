@@ -10,7 +10,7 @@
     }
     try {
         if($estado == "0") {$estado = "1";} else {$estado = "0";}
-        //Editar estado
+        //Editar estado da consulta
         Consulta::modificarEstado($id, $estado);
         header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta editada com sucesso!");
     } catch(Exception $e) {

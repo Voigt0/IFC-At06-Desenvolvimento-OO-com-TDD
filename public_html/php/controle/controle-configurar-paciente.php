@@ -5,7 +5,7 @@
     include_once (__DIR__."/../utils/autoload.php");
     try {
         if($acao == "update") {
-            //Atualizar Paciente
+            //Atualizar Paciente 
             $paci = new Paciente($_GET['paciId'], $_POST['nome'], $_POST['nascimento'], $_POST['estado'], $_POST['cidade'], $_POST['endereco'], $_POST['telefone'], $_POST['comorbidades'], $_POST['tabagismo'], $_POST['etilismo'], $_POST['alergias'], $_POST['medicacao'], $_POST['historiaClinica'], $_POST['peso'],$_POST['altura']);
             $bdpa = new PacienteBD($paci);
             $bdpa->update();

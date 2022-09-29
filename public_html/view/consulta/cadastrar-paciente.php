@@ -27,14 +27,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
-    <link rel="stylesheet" href="../../css/css-geral.css">
     <link rel="stylesheet" href="../../css/cadastrar-paciente.css">
+    <link rel="stylesheet" href="../../css/css-geral.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
 <body>
     <main>
-    <div class="hero">
-        <!-- Navbar -->
+    <div class="corpo">
         <nav>
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
@@ -42,7 +41,7 @@
                 <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
                 <li><a href="configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
-                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
+                <a href="../usuario/medico/perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 
@@ -131,10 +130,8 @@
                 </div>
         
                 <input type="submit" value="Salvar" class="btn">
-
             </div>
         </form>
-
     </div>
     </main>
     <!-- Script do cadastro de pacientes -->

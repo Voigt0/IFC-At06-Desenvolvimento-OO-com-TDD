@@ -45,8 +45,7 @@
 </head>
 <body>
     <main>
-    <div class="hero">
-        <!-- Navbar -->
+    <div class="corpo">
         <nav>
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
@@ -54,7 +53,7 @@
                 <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
                 <li><a href="configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
-                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
+                <a href="../usuario/medico/perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 
@@ -87,9 +86,7 @@
                     <input type="radio" id="consGravidade" name="consGravidade" value="4" <?php if(isset($data) && $data['consGravidade'] == '4') echo 'checked';?>>
                     <label id="radio">4</label>
                     <input type="radio" id="consGravidade" name="consGravidade" value="5" <?php if(isset($data) && $data['consGravidade'] == '5') echo 'checked';?>>
-                    <label id="radio">5</label>
-
-                    
+                    <label id="radio">5</label>                    
                 </div>
             
                 <div class="input-checkbox">

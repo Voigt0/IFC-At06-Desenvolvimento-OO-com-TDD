@@ -13,9 +13,11 @@
 		// private $DESCRICAO_DO_PROJETO = 'Um pequeno projeto para a disciplina de Programação';
 
 
+    // Criação do Construct
     private function __construct() {  
     } 
   
+    // Criação do Get Instance
     public static function getInstance() {  
       if (!isset(self::$pdo)) {  
         try {  

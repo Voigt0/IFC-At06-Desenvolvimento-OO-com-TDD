@@ -1,3 +1,4 @@
+// Parte visual do formulário
 const inputs = document.querySelectorAll(".input-field");
 const toggle_btn = document.querySelectorAll(".toggle");
 const main = document.querySelector("main");

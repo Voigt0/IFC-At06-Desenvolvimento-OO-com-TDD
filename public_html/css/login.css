@@ -221,11 +221,11 @@ main.sign-up-mode .forms-wrap {
   left: 55%;
 }
 
-main.sign-up-mode .carousel {
+main.sign-up-mode .img {
   left: 0%;
 }
 
-.carousel {
+.img {
   position: absolute;
   height: 100%;
   width: 55%;
@@ -364,7 +364,7 @@ main.sign-up-mode .carousel {
     transform: translateX(0%);
   }
 
-  .carousel {
+  .img {
     position: revert;
     height: auto;
     width: 100%;
@@ -394,7 +394,7 @@ main.sign-up-mode .carousel {
     padding: 1rem;
   }
 
-  .carousel {
+  .img {
     padding: 1.5rem 1rem;
     border-radius: 1.6rem;
   }
@@ -423,38 +423,38 @@ div{
 	font-size: 13px;
 }
 
-div#campo_nome{
+div#div_nome{
   display: flex;
   padding-top: 40px;
 }
 
-div#campo_crm{
+div#div_crm{
   display: flex;
   padding-top: 40px;
 }
 
-div#campo_especializacao{
+div#div_especializacao{
   display: flex;
   padding-top: 40px;
 }
 
 
-div#campo_telefone{
+div#div_telefone{
   display: flex;
   padding-top: 40px;
 }
 
-div#campo_email-cad{
+div#div_email-cad{
   display: flex;
   padding-top: 40px;  
 }
 
-div#campo_senha-cad{
+div#div_senha-cad{
   display: flex;
   padding-top: 40px;  
 }
 
-div#campo_confSenha{
+div#div_confSenha{
   display: flex;
   padding-top: 40px;  
 }

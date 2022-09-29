@@ -22,12 +22,18 @@
 </head>
 <body>
     <main>
+        <!-- Box = Caixa maior -->
         <div class="box">
+            <!-- Caixa interna -->
             <div class="inner-box">
                 <div class="forms-wrap">
+                    <!-- Formulário de login -->
                     <form method="post" action="../../php/controle/controle-login.php" class="sign-in-form">
+                        <!-- Cabeçalho -->
                         <div class="logo">
-                            <h4>DocGO!</h4>
+                            <a href="../../index.php" >
+                                <h4>DocGO!</h4>
+                            </a>
                         </div>
 
                         <div class="heading">
@@ -36,10 +42,8 @@
                             <a href="#" class="toggle">Cadastre-se</a>
                         </div>
 
-                        
-
                         <div class="actual-form">
-
+                        <!-- Campos do formulário -->
                             <div class="input-wrap">
                                 <input type="email" id="email" name="email" value="" minlength="4" class="input-field" required>
                                 <label>Email</label>
@@ -54,6 +58,7 @@
                         </div>
                     </form>
 
+                    <!-- Formulário de cadastro -->
                     <form method="post" action="../../php/controle/controle-cadastro.php" autocomplete="off" class="sign-up-form">
 
                         <div class="heading">
@@ -63,46 +68,47 @@
                         </div>
 
                         <div class="actual-form">
+                        <!-- Campos do formulário -->
                             <div class="input-wrap">
-                                <input type="text" id="nome" name="nome" value="" minlength="4" class="input-field" required onblur="validarDados('nome', document.getElementById('nome').value);" />
+                                <input type="text" id="nome" name="nome" value="" minlength="4" class="input-field" required onblur="validar('nome', document.getElementById('nome').value);" />
                                 <label>Nome completo</label>
-                                <div id="campo_nome"> </div>
+                                <div id="div_nome"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="crm" name="crm" value="" pattern="[0-9]{5}-[A-Z]{2}" OnKeyPress="formatar('#####-##', this)" maxlength="8" required onblur="validarDados('crm', document.getElementById('crm').value);" />
+                                <input class="input-field" type="text" id="crm" name="crm" value="" pattern="[0-9]{5}-[A-Z]{2}" OnKeyPress="formatar('#####-##', this)" maxlength="8" required onblur="validar('crm', document.getElementById('crm').value);" />
                                 <label>CRM</label>
-                                <div id="campo_crm"></div>
+                                <div id="div_crm"></div>
                             </div>
                             
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="especializacao" name="especializacao" value="" required onblur="validarDados('especializacao', document.getElementById('especializacao').value);" />
+                                <input class="input-field" type="text" id="especializacao" name="especializacao" value="" required onblur="validar('especializacao', document.getElementById('especializacao').value);" />
                                 <label>Especialização</label>
-                                <div id="campo_especializacao"> </div>
+                                <div id="div_especializacao"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="telefone" name="telefone" value="" OnKeyPress="formatar('## # ####-####', this)" maxlength="14" required onblur="validarDados('telefone', document.getElementById('telefone').value);"/>
+                                <input class="input-field" type="text" id="telefone" name="telefone" value="" OnKeyPress="formatar('## # ####-####', this)" maxlength="14" required onblur="validar('telefone', document.getElementById('telefone').value);"/>
                                 <label>Telefone de contato</label>
-                                <div id="campo_telefone"></div>
+                                <div id="div_telefone"></div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="email" id="email-cad" name="email" value="" required onblur="validarDados('email-cad', document.getElementById('email-cad').value);" />
+                                <input class="input-field" type="email" id="email-cad" name="email" value="" required onblur="validar('email-cad', document.getElementById('email-cad').value);" />
                                 <label>E-mail</label>
-                                <div id="campo_email-cad"> </div>
+                                <div id="div_email-cad"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="senha-cad" name="senha" value="" maxlength="20" required onblur="validarDados('senha-cad', document.getElementById('senha-cad').value);" />
+                                <input class="input-field" type="password" id="senha-cad" name="senha" value="" maxlength="20" required onblur="validar('senha-cad', document.getElementById('senha-cad').value);" />
                                 <label>Senha</label>
-                                <div id="campo_senha-cad"> </div>
+                                <div id="div_senha-cad"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="confSenha" name="confSenha" value="" maxlength="20" required onblur="validarDados('confSenha', document.getElementById('confSenha').value);" />
+                                <input class="input-field" type="password" id="confSenha" name="confSenha" value="" maxlength="20" required onblur="validar('confSenha', document.getElementById('confSenha').value);" />
                                 <label>Confirmar Senha</label>
-                                <div id="campo_confSenha"> </div>
+                                <div id="div_confSenha"> </div>
                             </div>
 
                             <input type="submit" value="Cadastrar" class="sign-btn">
@@ -110,7 +116,7 @@
                     </form>
                 </div>
 
-                <div class="carousel">
+                <div class="img">
                     <div class="images-wrapper">
                         <img src="../../img/png/login.png">
                     </div>
@@ -119,7 +125,7 @@
         </div>
     </main>
     <script src="../../js/login.js"></script>
-    <script type="text/javascript" src="../../ajax/funcs.js"></script>
+    <script type="text/javascript" src="../../ajax/ajax.js"></script>
 
 
 </body>

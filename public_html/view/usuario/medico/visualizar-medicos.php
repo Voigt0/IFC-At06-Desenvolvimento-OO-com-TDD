@@ -1,11 +1,10 @@
 <?php
     // Verificar se login foi efetuado
-    // Verificar se login foi efetuado
     if (session_status() === PHP_SESSION_NONE) {
         session_set_cookie_params(0);
         session_start();
-        if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
-            header("Location: ../login.php");
+        if(isset($_SESSION['mediId']) && $_SESSION['mediId'] != '') {
+            header("Location: view/usuario/medico/menu.php");
         }
     }
     
@@ -27,9 +26,8 @@
 </head>
 <body>
 <main>
-    <div class="hero">
-        <!-- Navbar -->
-        <nav>
+    <div class="corpo">
+            <nav>
             <a href="../../../index.php"><img src="../../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
                 <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>

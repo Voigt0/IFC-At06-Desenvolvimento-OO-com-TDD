@@ -11,10 +11,12 @@
     $pesquisa = isset($_POST["pesquisa"]) ? $_POST["pesquisa"] : "";
 
     $cons = Consulta::consultarPacientesDoMedico($_SESSION['mediId']);
-    $medi = new Medico($cons[0]['mediId'], $cons[0]['mediNome'], $cons[0]['mediCrm'], $cons[0]['mediEspecializacao'], $cons[0]['mediTelefone'], $cons[0]['mediEmail'], $cons[0]['mediSenha']);
-    foreach($cons as $key) {
-        $paci = new Paciente($key['paciId'], $key['paciNome'], $key['paciNascimento'], $key['paciEstado'], $key['paciCidade'], $key['paciEndereco'], $key['paciTelefone'], $key['paciComorbidades'], $key['paciTabagismo'], $key['paciEtilismo'], $key['paciAlergias'], $key['paciMedicacao'], $key['paciHistoriaClinica'], $key['paciPeso'],$key['paciAltura']);
-        $medi->adicionarPaciente($paci);
+    if(!empty($cons[0])) {
+        $medi = new Medico($cons[0]['mediId'], $cons[0]['mediNome'], $cons[0]['mediCrm'], $cons[0]['mediEspecializacao'], $cons[0]['mediTelefone'], $cons[0]['mediEmail'], $cons[0]['mediSenha']);
+        foreach($cons as $key) {
+            $paci = new Paciente($key['paciId'], $key['paciNome'], $key['paciNascimento'], $key['paciEstado'], $key['paciCidade'], $key['paciEndereco'], $key['paciTelefone'], $key['paciComorbidades'], $key['paciTabagismo'], $key['paciEtilismo'], $key['paciAlergias'], $key['paciMedicacao'], $key['paciHistoriaClinica'], $key['paciPeso'],$key['paciAltura']);
+            $medi->adicionarPaciente($paci);
+        }
     }
 ?>
 
@@ -31,8 +33,7 @@
 </head>
 <body>
 <main>
-    <div class="hero">
-        <!-- Navbar -->
+    <div class="corpo">
         <nav>
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
@@ -40,7 +41,7 @@
                 <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
                 <li><a href="configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
-                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
+                <a href="../usuario/medico/perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 
@@ -62,6 +63,7 @@
             </thead>
             <tbody>
             <?php 
+            if(!empty($cons[0])) {
                 foreach($medi->listarPacientes() as $key => $value) {
             ?>
             <tr>
@@ -72,11 +74,12 @@
             </tr>
             </tbody>
             <?php
-                } 
+                }
+            }
             ?> 
        </table>
        <br>
-       </div>
-</main>
+    </div>
+    </main>
 </body>
 </html>

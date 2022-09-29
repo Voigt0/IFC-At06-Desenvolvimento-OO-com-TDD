@@ -20,13 +20,13 @@
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
 </head>
 <body>
-    <div class="hero">
+    <div class="corpo">
         <nav>
             <img src="img/favicon/android-chrome-192x192.png" class="logo">
             <ul>
                 <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
                 <li><a href="view/usuario/medico/visualizar-medicos.php">Consultar médicos</a></li>
-                <a href="view/usuario/login.php" class="login-btn">Login</a>
+                <a href="view/usuario/login.php" class="nav-btn">Login</a>
             </ul>
         </nav>
         <div class="text-box">

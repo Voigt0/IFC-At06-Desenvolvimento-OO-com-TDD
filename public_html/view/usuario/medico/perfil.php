@@ -35,7 +35,7 @@
                 <li><a href="../../consulta/visualizar-paciente.php">Consultar pacientes</a></li>
                 <li><a href="../../consulta/configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="../../consulta/visualizar-consulta.php">Visualizar consulta</a></li>
-                <a href="perfil.php" class="perfil-btn">Perfil</a>
+                <a href="perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 

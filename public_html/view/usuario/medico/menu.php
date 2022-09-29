@@ -21,8 +21,7 @@
     <link rel="icon" type="image/x-icon" href="../../../img/favicon/favicon.ico">
 </head>
 <body>
-    <div class="hero">
-        <!-- Navbar -->
+    <div class="corpo">
         <nav>
             <a href="../../../index.php"><img src="../../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
@@ -31,7 +30,7 @@
                 <li><a href="../../consulta/configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="../../consulta/visualizar-consulta.php">Visualizar consulta</a></li>
 
-                <a href="perfil.php" class="perfil-btn">Perfil</a>
+                <a href="perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 
@@ -44,37 +43,36 @@
             <table>
                 <tr>
                     <td>
-                    <section>
-                    <div class="img-button"><a href="../../consulta/visualizar-consulta.php"><button class="botao"><img src="../../../img/icon/consulta.svg" width="70%"></button></a></div>
-                    <div class="button"><a href="../../consulta/visualizar-consulta.php"><button class="" type="submit" id="" name="" value="">Visualizar consultas</button></a></div>
-                    </section>
+                        <section>
+                            <div class="img-button"><a href="../../consulta/visualizar-consulta.php"><button class="botao"><img src="../../../img/icon/consulta.svg" width="70%"></button></a></div>
+                            <div class="button"><a href="../../consulta/visualizar-consulta.php"><button class="" type="submit" id="" name="" value="">Visualizar consultas</button></a></div>
+                        </section>
                     </td>
                     <td>
-                    <section>
-                    <div class="img-button"><a href="../../consulta/visualizar-paciente.php"><button class="botao"><img src="../../../img/icon/paciente.svg" width="70%"></button></a></div>
-                    <div class="button"><a href="../../consulta/visualizar-paciente.php"><button class="" type="submit" id="" name="" value="">Visualizar Pacientes</button></a></div>
-                    </section>
+                        <section>
+                            <div class="img-button"><a href="../../consulta/configurar-consulta.php"><button class="botao"><img src="../../../img/icon/adicionar-consulta.svg" width="70%"></button></a></div>
+                            <div class="button"><a href="../../consulta/configurar-consulta.php"><button class="" type="submit" id="" name="" value="">Adicionar Consulta</button></a></div>
+                        </section>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                    <section>
-                    <div class="img-button"><a href="../../consulta/configurar-consulta.php"><button class="botao"><img src="../../../img/icon/adicionar-consulta.svg" width="70%"></button></a></div>
-                    <div class="button"><a href="../../consulta/configurar-consulta.php"><button class="" type="submit" id="" name="" value="">Adicionar Consulta</button></a></div>
-                    </section>
+                        <section>
+                            <div class="img-button"><a href="../../consulta/visualizar-paciente.php"><button class="botao"><img src="../../../img/icon/paciente.svg" width="70%"></button></a></div>
+                            <div class="button"><a href="../../consulta/visualizar-paciente.php"><button class="" type="submit" id="" name="" value="">Visualizar Pacientes</button></a></div>
+                        </section>
                     </td>
 
                     <td>
-                    <section>
-                    <div class="img-button"><a href="perfil.php"><button class="botao"><img src="../../../img/icon/perfilIcon.svg" width="70%"></button></a></div>
-                    <div class="button"><a href="perfil.php"><button class="" type="submit" id="" name="" value="">Visualizar Perfil</button></a></div>
-                    </section>   
+                        <section>
+                            <div class="img-button"><a href="perfil.php"><button class="botao"><img src="../../../img/icon/perfilIcon.svg" width="70%"></button></a></div>
+                            <div class="button"><a href="perfil.php"><button class="" type="submit" id="" name="" value="">Visualizar Perfil</button></a></div>
+                        </section>   
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__."/../utils/autoload.php");
     try {
-        //Gerar relatório
+        //Gerar relatório 
         $rela = new Relatorio('', '', '', '', $_GET['consId']);
         $rela->create();
         header("Location: ../../view/consulta/visualizar-consulta.php?msg=Relatório cadastrado com sucesso!");

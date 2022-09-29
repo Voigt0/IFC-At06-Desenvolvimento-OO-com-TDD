@@ -34,8 +34,7 @@
 <body>
 
     <main>
-        <div class="hero">
-        <!-- Navbar -->
+        <div class="corpo">
         <nav>
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
@@ -43,7 +42,7 @@
                 <li><a href="../consulta/visualizar-paciente.php">Consultar pacientes</a></li>
                 <li><a href="../consulta/configurar-consulta.php">Criar consulta</a></li>
                 <li><a href="../consulta/visualizar-consulta.php">Visualizar consulta</a></li>
-                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
+                <a href="../usuario/medico/perfil.php" class="nav-btn">Perfil</a>
             </ul>
         </nav>
 
@@ -74,11 +73,10 @@
                     <input type="text" id="relaExames" name="relaExames" class="input-field" placeholder="Insira os exames necessários" value="<?php if(isset($data)) { echo $data['relaExames']; }?>"required>
                 </div>
 
-                <input type="submit" value="Salvar" class="btn">
-                
+                <input type="submit" value="Salvar" class="btn"> 
             </div>
         </form>
-        </div>
+    </div>
     </main>
 </body>
 </html>
