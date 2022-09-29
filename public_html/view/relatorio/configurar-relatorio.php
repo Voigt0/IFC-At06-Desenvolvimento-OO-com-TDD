@@ -50,7 +50,7 @@
             <h2>Relatório da consulta Nº <?php if(isset($data)) { echo $data['Consulta_consId'];}?></h2>
             <div class="img">
                 <a href="../../php/controle/controle-configurar-relatorio.php?acao=delete&&relaId=<?php echo $data['relaId'];?>"><img src="../../img/icon/deletar.svg" width="50px" class="delete"></a>
-                <!-- <a href="../../php/controle/controle-configurar-relatorio.php?acao=update&&relaId=<?php echo $data['relaId'];?>"><img src="../../img/icon/editar.svg" width="50px" class="delete"></a> -->
+                <a href="../usuario/medico/menu.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
             </div>
 
         </div>

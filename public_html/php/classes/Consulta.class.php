@@ -200,5 +200,16 @@
             );
             return Database::comando($sql, $params);
         }
+
+        public static function consultarPacientesDoMedico($mediId) {
+            $sql = "SELECT * FROM Consulta, Paciente, Medico
+                    WHERE Medico_mediId = mediId
+                    AND Paciente_paciId = paciId
+                    AND Medico_mediId = :mediId";
+            $params = array(
+                ":mediId" => $mediId
+            );
+            return Database::consulta($sql, $params);
+        }
     }
 ?>

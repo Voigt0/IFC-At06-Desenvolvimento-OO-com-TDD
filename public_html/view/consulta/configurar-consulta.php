@@ -59,11 +59,12 @@
         </nav>
 
         <!-- Formulário -->
+        <div class="heading">
+            <h2>Adicione a consulta</h2>
+            <a href="../usuario/medico/menu.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
+        </div>
+        
         <form method="post" action="../../php/controle/controle-configurar-consulta.php?<?php if(isset($data)){echo "acao=update&&consId=".$data['consId']."";}?>" class="">
-            <div class="heading">
-                <h2>Adicione a consulta</h2>
-            </div>
-
             <div class="form-box">
                 <div class="input-box">
                     <label for="consData">Data</label>

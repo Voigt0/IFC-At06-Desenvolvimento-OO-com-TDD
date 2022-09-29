@@ -83,7 +83,16 @@ a{
     color: black;
 }
 
-a:hover{
+.underline:hover{
     color:#90011e;
     text-decoration: underline;
+}
+
+
+.heading{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
 }

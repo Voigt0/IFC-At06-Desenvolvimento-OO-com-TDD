@@ -9,6 +9,13 @@
     include_once (__DIR__."/../../php/utils/autoload.php");
 
     $pesquisa = isset($_POST["pesquisa"]) ? $_POST["pesquisa"] : "";
+
+    $cons = Consulta::consultarPacientesDoMedico($_SESSION['mediId']);
+    $medi = new Medico($cons[0]['mediId'], $cons[0]['mediNome'], $cons[0]['mediCrm'], $cons[0]['mediEspecializacao'], $cons[0]['mediTelefone'], $cons[0]['mediEmail'], $cons[0]['mediSenha']);
+    foreach($cons as $key) {
+        $paci = new Paciente($key['paciId'], $key['paciNome'], $key['paciNascimento'], $key['paciEstado'], $key['paciCidade'], $key['paciEndereco'], $key['paciTelefone'], $key['paciComorbidades'], $key['paciTabagismo'], $key['paciEtilismo'], $key['paciAlergias'], $key['paciMedicacao'], $key['paciHistoriaClinica'], $key['paciPeso'],$key['paciAltura']);
+        $medi->adicionarPaciente($paci);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +45,8 @@
         </nav>
 
     <div class="heading">
-        <h2>Pacientes cadastrados</h2>
-        <a href="../usuario/medico/menu.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
+        <h2>Meus pacientes</h2>
+        <a href="visualizar-paciente.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
         <a href="cadastrar-paciente.php"><input type="button" class="btn" value="Adicionar pacientes"></a>
     </div>
 
@@ -55,14 +62,13 @@
             </thead>
             <tbody>
             <?php 
-                $tabela = PacienteBD::consultar(2, $pesquisa);
-                foreach($tabela as $key => $value) {
+                foreach($medi->listarPacientes() as $key => $value) {
             ?>
             <tr>
-                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>"><?php echo $value['paciNome'];?></td></a>
-                <td><?php echo date("d/m/Y",strtotime($value['paciNascimento']));?></td>
-                <td class="img"><a href='cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
-                <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
+                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value->getId();?>"><?php echo $value->getNome();?></td></a>
+                <td><?php echo date("d/m/Y",strtotime($value->getNascimento()));?></td>
+                <td class="img"><a href='cadastrar-paciente.php?paciId=<?php echo $value->getId();?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
+                <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-paciente.php?paciId=<?php echo $value->getId();?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
             </tr>
             </tbody>
             <?php
@@ -70,7 +76,6 @@
             ?> 
        </table>
        <br>
-       <a href="visualizar-meus-pacientes.php"><input type="button" class="btn" value="Visualizar meus pacientes"></a>
        </div>
 </main>
 </body>

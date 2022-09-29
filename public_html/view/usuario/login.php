@@ -75,29 +75,33 @@
                             </div>
                             
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="especializacao" name="especializacao" value="" required>
-                                <label>Especialização</label>
+                                <input class="input-field" type="text" id="especializacao" name="especializacao" value="" required onblur="validarDados('especializacao', document.getElementById('especializacao').value);" />
+                                <label>Especialização</label><br>
+                                <div id="campo_especializacao"> </div><br>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="telefone" name="telefone" value="" OnKeyPress="formatar('## # ####-####', this)" maxlength="14" required>
+                                <input class="input-field" type="text" id="telefone" name="telefone" value="" OnKeyPress="formatar('## # ####-####', this)" maxlength="14" required onblur="validarDados('telefone', document.getElementById('telefone').value);"/>
                                 <label>Telefone de contato</label>
+                                <div id="campo_telefone"></div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="email" id="email" name="email" value="" required>
+                                <input class="input-field" type="email" id="email-cad" name="email" value="" required onblur="validarDados('email-cad', document.getElementById('email-cad').value);" />
                                 <label>E-mail</label>
-                                <div class="campo_login"> </div>
+                                <div id="campo_email-cad"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="senha" name="senha" value="" required>
+                                <input class="input-field" type="password" id="senha-cad" name="senha" value="" maxlength="20" required onblur="validarDados('senha-cad', document.getElementById('senha-cad').value);" />
                                 <label>Senha</label>
+                                <div id="campo_senha-cad"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="confSenha" name="confSenha" value="" required>
+                                <input class="input-field" type="password" id="confSenha" name="confSenha" value="" maxlength="20" required onblur="validarDados('confSenha', document.getElementById('confSenha').value);" />
                                 <label>Confirmar Senha</label>
+                                <div id="campo_confSenha"> </div>
                             </div>
 
                             <input type="submit" value="Cadastrar" class="sign-btn">

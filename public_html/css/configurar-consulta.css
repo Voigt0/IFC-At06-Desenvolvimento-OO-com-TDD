@@ -97,6 +97,7 @@ form{
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    justify-content: space-between;
 }
 
 
@@ -132,4 +133,8 @@ form{
 .footer-form{
     display: flex;
     justify-content: center;
+}
+
+a{
+    text-decoration: none;
 }

@@ -19,12 +19,6 @@
         }
     }
 
-    $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
-    if($acao == 'update'){
-        $funcao = 'Editar';
-    } else {
-        $funcao = 'Cadastrar';
-    }
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +49,8 @@
 
         <!-- Conteúdo da página -->
         <div class="heading">
-            <h2><?php echo $funcao;?> o paciente</h2>       
+            <h2>Cadastrar paciente</h2>       
+            <a href="../usuario/medico/menu.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
         </div>
         
         <!-- Formulário -->

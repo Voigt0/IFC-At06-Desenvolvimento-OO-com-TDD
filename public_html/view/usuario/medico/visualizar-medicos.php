@@ -37,6 +37,13 @@
             </ul>
         </nav>
 
+        <div class="heading">
+            <h2>Consultar médicos</h2>
+            <div class="img">
+                <a href="../../../index.php"><img src="../../../img/icon/backIcon.svg" class="back"></a>
+            </div>
+        </div>
+
     <!-- Tabela de médicos -->
     <table class="content-table">
             <thead>

@@ -8,6 +8,7 @@
         private $especializacao;
         private $telefone;
         public $login;
+        private $pacientes;
 
 
         public function __construct($id, $nome, $crm, $especializacao, $telefone, $email, $senha) {
@@ -17,6 +18,7 @@
             $this->setEspecializacao($especializacao);
             $this->setTelefone($telefone);
             $this->adicionarLogin($email, $senha);
+            $this->pacientes = array();
         }  
         
 
@@ -66,6 +68,14 @@
         //Métodos diversos
         public function adicionarLogin($email, $senha) {
             $this->login = new MedicoLogin($email, $senha);
+        }
+
+        public function adicionarPaciente(Paciente $paciente) {
+            $this->pacientes[] = $paciente;
+        }
+
+        public function listarPacientes() {
+            return $this->pacientes;
         }
 
 
