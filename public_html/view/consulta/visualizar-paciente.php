@@ -54,7 +54,7 @@
             </thead>
             <tbody>
             <?php 
-                $tabela = PacienteBD::consultar(2, $pesquisa);
+                $tabela = Paciente::consultar(2, $pesquisa);
                 foreach($tabela as $key => $value) {
             ?>
             <tr>

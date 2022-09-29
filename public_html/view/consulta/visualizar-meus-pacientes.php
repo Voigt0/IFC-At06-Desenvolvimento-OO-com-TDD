@@ -10,14 +10,20 @@
 
     $pesquisa = isset($_POST["pesquisa"]) ? $_POST["pesquisa"] : "";
 
-    $cons = Consulta::consultarPacientesDoMedico($_SESSION['mediId']);
+    $medi = new Medico($_SESSION['mediId'], '', '',  '', '', '', '');
+
+    $cons = Consulta::consultarConsultasDoMedico($_SESSION['mediId']);
     if(!empty($cons[0])) {
-        $medi = new Medico($cons[0]['mediId'], $cons[0]['mediNome'], $cons[0]['mediCrm'], $cons[0]['mediEspecializacao'], $cons[0]['mediTelefone'], $cons[0]['mediEmail'], $cons[0]['mediSenha']);
         foreach($cons as $key) {
-            $paci = new Paciente($key['paciId'], $key['paciNome'], $key['paciNascimento'], $key['paciEstado'], $key['paciCidade'], $key['paciEndereco'], $key['paciTelefone'], $key['paciComorbidades'], $key['paciTabagismo'], $key['paciEtilismo'], $key['paciAlergias'], $key['paciMedicacao'], $key['paciHistoriaClinica'], $key['paciPeso'],$key['paciAltura']);
-            $medi->adicionarPaciente($paci);
+            $paci = new Paciente($key['Paciente_paciId'], '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+            $cons = new Consulta($key['consId'], $key['consData'], $key['consHorario'], $key['consGravidade'], $key['consEstado'], $paci, $medi);
+            $medi->adicionarConsulta($cons);
         }
     }
+
+    echo '<pre>';
+    var_dump($cons);
+    echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +69,8 @@
             </thead>
             <tbody>
             <?php 
-            if(!empty($cons[0])) {
-                foreach($medi->listarPacientes() as $key => $value) {
+            if(!empty($cons)) {
+                foreach($medi->listarConsultas() as $key => $value) {
             ?>
             <tr>
                 <td><a href="cadastrar-paciente.php?paciId=<?php echo $value->getId();?>"><?php echo $value->getNome();?></td></a>

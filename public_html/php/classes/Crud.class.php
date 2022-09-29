@@ -9,6 +9,7 @@
 
         //Método toString
         public function __toString() {
+            
         }
 
         // Funções abstratas relacionadas ao CRUD;

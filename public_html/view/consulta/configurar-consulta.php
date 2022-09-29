@@ -108,6 +108,17 @@
                     </select>
                 </div>
 
+                <div class="input-box">
+                    <p>Médico auxiliar:</p>
+                    <select name="Medico_mediId">
+                        <?php
+                            //Select Box
+                            require_once "../../php/utils/select-box.php";
+                            echo selectBox('Medico', array('mediId', 'mediNome'), $data['Medico_mediId']);
+                        ?>
+                    </select>
+                </div>
+
                 <div class="footer-form">
                     <input type="submit" value="Salvar" class="btn">
                 </div>

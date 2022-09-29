@@ -12,8 +12,8 @@
 
     //Salvar contexto
     if(isset($_GET['paciId'])) {
-        if(PacienteBD::validar($_GET['paciId'])) {
-            $data = PacienteBD::consultarData($_GET['paciId'])[0];
+        if(Paciente::validar($_GET['paciId'])) {
+            $data = Paciente::consultarData($_GET['paciId'])[0];
         } else {
             header("Location: ../consulta/visualizar-paciente.php");
         }

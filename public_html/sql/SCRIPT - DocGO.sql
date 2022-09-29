@@ -69,16 +69,10 @@ CREATE TABLE IF NOT EXISTS `docgo`.`Consulta` (
   `consGravidade` VARCHAR(45) NOT NULL,
   `consEstado` TINYINT NOT NULL,
   `Paciente_paciId` INT NOT NULL,
-  `Medico_mediId` INT NOT NULL,
   PRIMARY KEY (`consId`),
   CONSTRAINT `fk_Consulta_Paciente1`
     FOREIGN KEY (`Paciente_paciId`)
     REFERENCES `docgo`.`Paciente` (`paciId`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_Consulta_Medico1`
-    FOREIGN KEY (`Medico_mediId`)
-    REFERENCES `docgo`.`Medico` (`mediId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -99,6 +93,28 @@ CREATE TABLE IF NOT EXISTS `docgo`.`Relatorio` (
   CONSTRAINT `fk_Relatorio_Consulta1`
     FOREIGN KEY (`Consulta_consId`)
     REFERENCES `docgo`.`Consulta` (`consId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `docgo`.`Consulta_Medico`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `docgo`.`Consulta_Medico` ;
+
+CREATE TABLE IF NOT EXISTS `docgo`.`Consulta_Medico` (
+  `Consulta_consId` INT NOT NULL,
+  `Medico_mediId` INT NOT NULL,
+  PRIMARY KEY (`Consulta_consId`, `Medico_mediId`),
+  CONSTRAINT `fk_Consulta_has_Medico_Consulta1`
+    FOREIGN KEY (`Consulta_consId`)
+    REFERENCES `docgo`.`Consulta` (`consId`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Consulta_has_Medico_Medico1`
+    FOREIGN KEY (`Medico_mediId`)
+    REFERENCES `docgo`.`Medico` (`mediId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

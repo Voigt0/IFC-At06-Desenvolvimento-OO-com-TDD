@@ -11,7 +11,7 @@
     include_once (__DIR__."/../../../php/utils/autoload.php");
 
     //Salvar contexto
-    $data = MedicoBD::consultarData($_SESSION['mediId'])[0];
+    $data = Medico::consultarData($_SESSION['mediId'])[0];
 ?>
 
 <!DOCTYPE html>

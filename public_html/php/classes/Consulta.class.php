@@ -8,18 +8,18 @@
         private $horario;
         private $gravidade;
         private $estado;
-        private $paciente_paciId;
-        private $medico_mediId;
+        private $paciente;
+        private $medicos;
 
         // Criação do Construct
-        public function __construct($id, $data, $horario, $gravidade, $estado, $paciente_paciId, $medico_medId) {
+        public function __construct($id, $data, $horario, $gravidade, $estado, Paciente $paciente) {
             $this->setId($id);
             $this->setData($data);
             $this->setHorario($horario);
             $this->setGravidade($gravidade);
             $this->setEstado($estado);
-            $this->setPaciente_paciId($paciente_paciId);
-            $this->setMedico_medId($medico_medId);
+            $this->setPaciente($paciente);
+            $this->medicos = array();
         }  
         
 
@@ -44,12 +44,12 @@
             return $this->estado;
         }
 
-        public function getPaciente_paciId() {
-            return $this->paciente_paciId;
+        public function getPaciente() {
+            return $this->paciente;
         }
 
-        public function getMedico_medId() {
-            return $this->medico_medId;
+        public function getMedico() {
+            return $this->medico;
         }
 
 
@@ -73,12 +73,18 @@
             $this->estado = $estado;
         }
 
-        public function setPaciente_paciId($paciente_paciId) {
-            $this->paciente_paciId = $paciente_paciId;
+        public function setPaciente($paciente) {
+            $this->paciente = $paciente;
         }
 
-        public function setMedico_medId($medico_medId) {
-            $this->medico_medId = $medico_medId;
+
+        //Métodos diversos
+        public function adicionarMedico(Medico $medico) {
+            $this->medicos[] = $medico;
+        }
+
+        public function listarMedicos() {
+            return $this->medicos;
         }
 
 
@@ -90,8 +96,8 @@
                     "<br>Horário: ".$this->getHorario().
                     "<br>Gravidade: ".$this->getGravidade().
                     "<br>Estado: ".$this->getEstado().
-                    "<br>Paciente: ".$this->getPaciente_paciId().
-                    "<br>Médico: ".$this->getMedico_medId().
+                    "<br>Paciente: ".$this->getPaciente()->getId().
+                    "<br>Médico: ".$this->getMedico()->getId().
                     "<br>";
             return $str;
         }
@@ -99,16 +105,22 @@
 
         //Métodos de persistência (CRUD)
         public function create(){
-            $sql = "INSERT INTO Consulta (consData, consHorario, consGravidade, consEstado, Paciente_paciId, Medico_mediId) VALUES (:consData, :consHorario, :consGravidade, :consEstado, :paciente_paciId, :medico_mediId)";
-            $params = array(
-                ":consData" => $this->getData(),
-                ":consHorario" => $this->getHorario(),
-                ":consGravidade" => $this->getGravidade(),
-                ":consEstado" => $this->getEstado(),
-                ":paciente_paciId" => $this->getPaciente_paciId(),
-                ":medico_mediId" => $this->getMedico_medId()
-            );
-            return Database::comando($sql, $params);
+            foreach($this->medicos as $key => $value) {
+                echo "<pre>";
+                var_dump($value);
+                echo "</pre>";
+                die();
+                $sql = "INSERT INTO Consulta (consData, consHorario, consGravidade, consEstado, Paciente_paciId, Medico_mediId) VALUES (:consData, :consHorario, :consGravidade, :consEstado, :paciente_paciId, :medico_mediId)";
+                $params = array(
+                    ":consData" => $this->getData(),
+                    ":consHorario" => $this->getHorario(),
+                    ":consGravidade" => $this->getGravidade(),
+                    ":consEstado" => $this->getEstado(),
+                    ":paciente_paciId" => $this->getPaciente()->getId(),
+                    ":medico_mediId" => $value->getId()
+                );
+                return Database::comando($sql, $params);
+            }
         }
 
         public function update(){
@@ -119,8 +131,8 @@
                 ":consHorario" => $this->getHorario(),
                 ":consGravidade" => $this->getGravidade(),
                 ":consEstado" => $this->getEstado(),
-                ":paciente_paciId" => $this->getPaciente_paciId(),
-                ":medico_mediId" => $this->getMedico_medId()
+                ":paciente_paciId" => $this->getPaciente()->getId(),
+                ":medico_mediId" => $this->getMedico()->getId()
             );
             return Database::comando($sql, $params);
         }
@@ -203,7 +215,7 @@
             return Database::comando($sql, $params);
         }
 
-        public static function consultarPacientesDoMedico($mediId) {
+        public static function consultarConsultasDoMedico($mediId) {
             $sql = "SELECT * FROM Consulta, Paciente, Medico
                     WHERE Medico_mediId = mediId
                     AND Paciente_paciId = paciId
