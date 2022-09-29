@@ -12,11 +12,18 @@
 
     //Salvar contexto
     if(isset($_GET['paciId'])) {
-        if(Paciente::validar($_GET['paciId'])) {
-            $data = Paciente::consultarData($_GET['paciId'])[0];
+        if(PacienteBD::validar($_GET['paciId'])) {
+            $data = PacienteBD::consultarData($_GET['paciId'])[0];
         } else {
             header("Location: ../consulta/visualizar-paciente.php");
         }
+    }
+
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
+    if($acao == 'update'){
+        $funcao = 'Editar';
+    } else {
+        $funcao = 'Cadastrar';
     }
 ?>
 
@@ -27,25 +34,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
+    <link rel="stylesheet" href="../../css/css-geral.css">
     <link rel="stylesheet" href="../../css/cadastrar-paciente.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
 <body>
     <main>
     <div class="hero">
+        <!-- Navbar -->
         <nav>
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
-                <li><a href="#">Sobre a equipe</a></li>
-                <li><a href="../consulta/addPaciente.php">Consultar pacientes</a></li>
-                <a href="../usuario/perfil.php" class="perfil-btn">Perfil</a>
+                <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
+                <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
+                <li><a href="configurar-consulta.php">Criar consulta</a></li>
+                <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
+                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
             </ul>
         </nav>
-        
+
+        <!-- Conteúdo da página -->
         <div class="heading">
-            <h2>Adicione o paciente</h2>
+            <h2><?php echo $funcao;?> o paciente</h2>       
         </div>
         
+        <!-- Formulário -->
         <form method="post" action="../../php/controle/controle-configurar-paciente.php?<?php if(isset($data)){echo "acao=update&&paciId=".$data['paciId']."";}?>" class="">
             <div class="form-box">
                 <div class="input-box">
@@ -80,7 +93,7 @@
 
                 <div class="input-box">
                     <label for="comorbidades">Comorbidades</label>
-                    <textarea id="comorbidades" name="comorbidades" class="input-field" required placeholder="Insira as comorbidades do paciente"><?php if(isset($data)) { echo $data['paciComorbidades']; }?></textarea>
+                    <textarea id="comorbidades" name="comorbidades" class="input-field" required placeholder="Insira as comorbidades do paciente"><?php if(isset($data)) { echo $data['paciComorbidades'];}?></textarea>
                 </div>
 
                 <p>Tabagismo</p>
@@ -123,13 +136,14 @@
                     <input type="text" id="altura" name="altura" class="input-field" required value="<?php if(isset($data)) { echo $data['paciAltura']; }?>" placeholder="Insira a altura do paciente">
                 </div>
         
-                <input type="submit" value="Cadastrar" class="btn">
+                <input type="submit" value="Salvar" class="btn">
 
             </div>
         </form>
 
     </div>
     </main>
+    <!-- Script do cadastro de pacientes -->
     <script src="../../js/cadastrar-paciente.js"></script>
 </body>
 </html>

@@ -86,3 +86,19 @@ a{
 a:hover{
     color:#90011e;
 }
+
+
+.btn {
+    width: 200px;
+    height: 43px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    /* margin-bottom: 2rem; */
+    transition: 0.3s;
+    margin: 1.4rem;
+    float: right;
+  }

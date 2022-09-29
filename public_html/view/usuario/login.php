@@ -1,11 +1,10 @@
 <?php
+    // Verificar se login foi efetuado
     if (session_status() === PHP_SESSION_NONE) {
         session_set_cookie_params(0);
         session_start();
         if(isset($_SESSION['mediId']) && $_SESSION['mediId'] != '') {
             header("Location: medico/menu.php");
-        } else if(isset($_SESSION['receId']) && $_SESSION['receId'] != '') {
-            header("Location: recepcionista/menu.php");
         }
     }
 ?>
@@ -19,6 +18,7 @@
     <title>DocGO!</title>
     <link rel="stylesheet" href="../../css/login.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
+
 </head>
 <body>
     <main>
@@ -39,13 +39,6 @@
                         
 
                         <div class="actual-form">
-
-                            <div class="input-radio">
-                                <input required type="radio" id="tipo" name="tipo" value="medico">
-                                <label id="radio">Médico</label>
-                                <input required type="radio" id="tipo" name="tipo" value="recepcionista">
-                                <label id="radio">Recepcionista</label>
-                            </div>
 
                             <div class="input-wrap">
                                 <input type="email" id="email" name="email" value="" minlength="4" class="input-field" required>
@@ -71,20 +64,14 @@
 
                         <div class="actual-form">
                             <div class="input-wrap">
-                                <input type="text" id="nome" name="nome" value="" minlength="4" class="input-field" required>
-                                <label>Nome completo</label>
-                            </div>
-
-                            <div class="input-radio">
-                                <input required type="radio" id="tipo" name="tipo" value="medico">
-                                <label id="radio">Médico</label>
-                                <input required type="radio" id="tipo" name="tipo" value="recepcionista">
-                                <label id="radio">Recepcionista</label>
+                                <input type="text" id="nome" name="nome" value="" minlength="4" class="input-field" required onblur="validarDados('nome', document.getElementById('nome').value);" />
+                                <label>Nome completo</label><br>
+                                <div id="campo_nome"> </div> <br>
                             </div>
 
                             <div class="input-wrap">
                                 <input class="input-field" type="text" id="crm" name="crm" value="" pattern="[0-9]{5}-[A-Z]{2}" OnKeyPress="formatar('#####-##', this)" maxlength="8" required>
-                                <label>CRM (apenas para médicos)</label>
+                                <label>CRM</label>
                             </div>
                             
                             <div class="input-wrap">
@@ -100,6 +87,7 @@
                             <div class="input-wrap">
                                 <input class="input-field" type="email" id="email" name="email" value="" required>
                                 <label>E-mail</label>
+                                <div class="campo_login"> </div>
                             </div>
 
                             <div class="input-wrap">
@@ -126,5 +114,8 @@
         </div>
     </main>
     <script src="../../js/login.js"></script>
+    <script type="text/javascript" src="../../ajax/funcs.js"></script>
+
+
 </body>
 </html>

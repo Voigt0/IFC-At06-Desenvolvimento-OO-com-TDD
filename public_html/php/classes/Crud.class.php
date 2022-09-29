@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    abstract class Padrao{
+    abstract class Crud{
         
         public function __construct() {
         }

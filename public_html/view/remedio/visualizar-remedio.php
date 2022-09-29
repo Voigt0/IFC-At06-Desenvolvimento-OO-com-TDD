@@ -30,38 +30,37 @@
             <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
                 <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
-                <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
-                <li><a href="configurar-consulta.php">Criar consulta</a></li>
-                <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
+                <li><a href="../consulta/visualizar-paciente.php">Consultar pacientes</a></li>
+                <li><a href="../consulta/configurar-consulta.php">Criar consulta</a></li>
+                <li><a href="../consulta/visualizar-consulta.php">Visualizar consulta</a></li>
                 <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
             </ul>
         </nav>
-
-    <div class="heading">
-        <h2>Pacientes cadastrados</h2>
-        <a href="cadastrar-paciente.php"><input type="button" class="btn" value="Adicionar pacientes"></a>
-    </div>
 
     <!-- Tabela dos pacientes -->
     <table class="content-table">
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Nascimento</th>
+                    <th>Classificação</th>
+                    <th>Tipo</th>
+                    <th>Idade recomendada</th>
                     <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
             <?php 
-                $tabela = PacienteBD::consultar(2, $pesquisa);
+                $tabela = Remedio::consultar(0, $pesquisa);
                 foreach($tabela as $key => $value) {
             ?>
             <tr>
-                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>"><?php echo $value['paciNome'];?></td></a>
-                <td><?php echo date("d/m/Y",strtotime($value['paciNascimento']));?></td>
-                <td class="img"><a href='cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
-                <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
+                <td><?php echo $value['remeNome'];?></td>
+                <td><?php echo $value['remeClassificacao'];?></td>
+                <td><?php echo $value['remeTipo'];?></td>
+                <td><?php echo $value['remeIdade'];?></td>
+                <td class="img"><a href='cadastrar-remedio.php?remeId=<?php echo $value['remeId'];?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
+                <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-remedio.php?remeId=<?php echo $value['remeId'];?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
             </tr>
             </tbody>
             <?php

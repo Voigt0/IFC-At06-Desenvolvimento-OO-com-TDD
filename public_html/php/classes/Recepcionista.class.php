@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Recepcionista extends Padrao{
+    class Recepcionista extends Crud{
         private $id;
         private $nome;
         private $email;

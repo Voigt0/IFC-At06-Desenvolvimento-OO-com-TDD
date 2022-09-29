@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="../../css/configurar-consulta.css">
     <link rel="stylesheet" href="../../css/css-geral.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
+
+    <!-- Função de busca no Select -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
@@ -44,15 +46,19 @@
 <body>
     <main>
     <div class="hero">
+        <!-- Navbar -->
         <nav>
-            <img src="../../img/favicon/android-chrome-192x192.png" class="logo">
+            <a href="../../index.php"><img src="../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
-                <li><a href="#">Sobre a equipe</a></li>
-                <li><a href="../consulta/addPaciente.php">Consultar pacientes</a></li>
-                <a href="../usuario/perfil.php" class="perfil-btn">Perfil</a>
+                <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
+                <li><a href="visualizar-paciente.php">Consultar pacientes</a></li>
+                <li><a href="configurar-consulta.php">Criar consulta</a></li>
+                <li><a href="visualizar-consulta.php">Visualizar consulta</a></li>
+                <a href="../usuario/medico/perfil.php" class="perfil-btn">Perfil</a>
             </ul>
         </nav>
 
+        <!-- Formulário -->
         <form method="post" action="../../php/controle/controle-configurar-consulta.php?<?php if(isset($data)){echo "acao=update&&consId=".$data['consId']."";}?>" class="">
             <div class="heading">
                 <h2>Adicione a consulta</h2>
@@ -107,10 +113,8 @@
                 <div class="footer-form">
                     <input type="submit" value="Salvar" class="btn">
                 </div>
-                
             </div>
         </form>
-
     </div>
     </main>
 </body>

@@ -100,8 +100,10 @@ form{
     padding: 1rem;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
 }
+
 
 .input-box{
     display: flex;
@@ -171,4 +173,7 @@ label{
     margin-top: 1rem;
 }
 
-
+.delete{
+    display: flex;
+    float: right;
+}

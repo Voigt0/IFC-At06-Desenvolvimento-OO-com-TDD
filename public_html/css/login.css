@@ -27,7 +27,7 @@ main {
   position: relative;
   width: 100%;
   max-width: 1020px;
-  height: 700px;
+  height: 800px;
   background-color: #fff;
   border-radius: 3.3rem;
   box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
@@ -118,7 +118,7 @@ form.sign-up-form {
 .input-wrap {
   position: relative;
   height: 37px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.7rem;
 }
 
 .input-field {
@@ -231,7 +231,7 @@ main.sign-up-mode .carousel {
   width: 55%;
   left: 45%;
   top: 0;
-  background-color: #ffe0d2;
+  /* background-color: #ffe0d2; */
   border-radius: 2rem;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -415,4 +415,16 @@ main.sign-up-mode .carousel {
   
 input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+div{
+  color:#90011e;
+  /* padding-top: 5px; */
+	font-size: 13px;
+}
+
+div#campo_nome{
+  display: flex;
+  padding-top: 13px;
+
 }

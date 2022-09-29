@@ -104,20 +104,6 @@ CREATE TABLE IF NOT EXISTS `docgo`.`Relatorio` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `docgo`.`Recepcionista`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `docgo`.`Recepcionista` ;
-
-CREATE TABLE IF NOT EXISTS `docgo`.`Recepcionista` (
-  `receId` INT NOT NULL AUTO_INCREMENT,
-  `receNome` VARCHAR(45) NOT NULL,
-  `receEmail` VARCHAR(45) NOT NULL,
-  `receSenha` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`receId`))
-ENGINE = InnoDB;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

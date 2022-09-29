@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Relatorio extends Padrao{
+    class Relatorio extends Crud{
         private $id;
         private $descricao;
         private $medicamentos;

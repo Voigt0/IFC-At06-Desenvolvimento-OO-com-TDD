@@ -7,12 +7,14 @@
         if($acao == "update") {
             //Editar médico
             $medi = new Medico($_SESSION['mediId'], $_POST['nome'], $_POST['crm'], $_POST['especializacao'], $_POST['telefone'], $_POST['email'], $_POST['senha']);
-            $medi->update();
+            $dbme = new MedicoBD($medi);
+            $dbme->update();
             header("Location: ../../view/usuario/medico/perfil.php?msg=Usuário editado com sucesso!");
         } else if($acao == "delete") {
             //Deletar médico
             $medi = new Medico($_SESSION['mediId'], "", "", "", "", "", "");
-            $medi->delete();
+            $dbme = new MedicoBD($medi);  
+            $dbme->delete();
             session_destroy();
             header("Location: ../../view/usuario/login.php?msg=Usuário deletado com sucesso!");
         }

@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Consulta extends Padrao{
+    class Consulta extends Crud{
         private $id;
         private $data;
         private $horario;
@@ -171,7 +171,7 @@
             } else if($estado == 1) {
                 $sql .= " AND consEstado = 1";
             }
-            $sql .= " ORDER BY consEstado ASC, consData DESC, consHorario ASC";
+            $sql .= " ORDER BY consEstado ASC, consGravidade DESC, consData DESC, consHorario ASC";
             $params = array(':mediId'=>$mediId);
             return Database::consulta($sql, $params);
         }

@@ -11,7 +11,7 @@
     include_once (__DIR__."/../../../php/utils/autoload.php");
 
     //Salvar contexto
-    $data = Medico::consultarData($_SESSION['mediId'])[0];
+    $data = MedicoBD::consultarData($_SESSION['mediId'])[0];
 ?>
 
 <!DOCTYPE html>
@@ -21,20 +21,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
+    <link rel="stylesheet" href="../../../css/css-geral.css">
     <link rel="stylesheet" href="../../../css/perfil.css">
     <link rel="icon" type="image/x-icon" href="../../../img/favicon/favicon.ico">
 </head>
 <body>
     <div class="hero">
+        <!-- Navbar -->
         <nav>
-            <a href="../../index.php"><img src="../../../img/favicon/android-chrome-192x192.png" class="logo"></a>
+            <a href="../../../index.php"><img src="../../../img/favicon/android-chrome-192x192.png" class="logo"></a>
             <ul>
-                <li><a href="#">Sobre a equipe</a></li>
-                <li><a href="../consulta/addPaciente.php">Consultar pacientes</a></li>
-                <a href="../usuario/perfil.php" class="perfil-btn">Perfil</a>
+                <li><a href="https://docgo.carrd.co">Sobre a equipe</a></li>
+                <li><a href="../../consulta/visualizar-paciente.php">Consultar pacientes</a></li>
+                <li><a href="../../consulta/configurar-consulta.php">Criar consulta</a></li>
+                <li><a href="../../consulta/visualizar-consulta.php">Visualizar consulta</a></li>
+                <a href="perfil.php" class="perfil-btn">Perfil</a>
             </ul>
-        </nav>   
-        
+        </nav>
+
         <div class="heading">
             <h2>Olá, Doutor!</h2>
             <a href="menu.php"><img src="../../../img/icon/backIcon.svg" class="back"></a>
@@ -44,6 +48,7 @@
             <img src="../../../img/png/perfil.png" class="img">
         </div>
 
+        <!-- Formulário -->
         <form method="post" action="../../../php/controle/controle-perfil-medico.php?acao=update">
         <div class="corpo">
             <div class="input-box">
@@ -75,30 +80,18 @@
                 <span>Senha</span>
                 <input required class="" type="text" name="senha" id="senha" value="<?php echo $data['mediSenha'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?>>
             </div>
-
         </div>
 
+        <div class="form-footer">
+            <a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="btn" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a>
 
-        <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>">
-        <button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
+            <input type="submit" class="btn" id="enviar" value="Salvar" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
 
-                <br>
-                    <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button></div>
-                <br>
-                    
-                <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="return confirm('Deseja excluir o perfil?')" href="../../../php/controle/controle-perfil-medico.php?acao=delete"> Excluir perfil</a></button></div>                  
+            <a onclick="return confirm('Deseja excluir o perfil?')" href="../../../php/controle/controle-perfil-medico.php?acao=delete&&mediId=<?php echo $_SESSION['mediId']?>"><button class="btn" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled> Excluir perfil</button></a>              
 
-                    
-                <div class="button"><a href="../../php/controle/controle-logout.php"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>
-
-        
-        <!-- <a href="../../../php/controle/controle-logout.php?"><input class="btn" type="button" value="Encerrar sessão"></a>
-        <a href="../../../php/controle/controle-perfil-medico.php?acao=editar"><input class="btn" type="button" value="Editar"></a> -->
+            <a href="../../../php/controle/controle-logout.php?"><input class="btn" type="button" value="Encerrar sessão"></a>
+        </div>
         </form>
     </div>
 </body>
 </html>
-
-
-<!-- 
- -->
