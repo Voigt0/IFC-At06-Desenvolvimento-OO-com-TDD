@@ -22,7 +22,7 @@
             //Cadastrar Consulta
             $paci = new Paciente($_POST['Paciente_paciId'], '', '', '', '', '', '', '', '', '', '', '', '', '', '');
             $medi1 = new Medico($_SESSION['mediId'], '', '', '', '', '', '');
-            $cons = new Consulta('', $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], $_POST['consEstado'], $paci, $medi);
+            $cons = new Consulta('', $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], $_POST['consEstado'], $paci);
             $medi2 = new Medico($_POST['Medico_mediId'], '', '', '', '', '', '');
             $cons->adicionarMedico($medi1);
             $cons->adicionarMedico($medi2);

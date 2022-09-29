@@ -106,10 +106,6 @@
         //Métodos de persistência (CRUD)
         public function create(){
             foreach($this->medicos as $key => $value) {
-                echo "<pre>";
-                var_dump($value);
-                echo "</pre>";
-                die();
                 $sql = "INSERT INTO Consulta (consData, consHorario, consGravidade, consEstado, Paciente_paciId, Medico_mediId) VALUES (:consData, :consHorario, :consGravidade, :consEstado, :paciente_paciId, :medico_mediId)";
                 $params = array(
                     ":consData" => $this->getData(),
@@ -119,8 +115,9 @@
                     ":paciente_paciId" => $this->getPaciente()->getId(),
                     ":medico_mediId" => $value->getId()
                 );
-                return Database::comando($sql, $params);
+                Database::comando($sql, $params);
             }
+            return true;
         }
 
         public function update(){
