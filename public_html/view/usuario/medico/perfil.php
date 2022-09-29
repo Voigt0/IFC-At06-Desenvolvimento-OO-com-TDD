@@ -87,8 +87,7 @@
 
             <input type="submit" class="btn" id="enviar" value="Salvar" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
 
-            <a onclick="return confirm('Deseja excluir o perfil?')" href="../../../php/controle/controle-perfil-medico.php?acao=delete&&mediId=<?php echo $_SESSION['mediId']?>"><button class="btn" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled> Excluir perfil</button></a>              
-
+            <a onclick="return confirm('Deseja excluir o perfil?')" href="../../../php/controle/controle-perfil-medico.php?acao=delete&&mediId=<?php echo $_SESSION['mediId']?>"><input class="btn" type="button" value="Excluir perfil"></a>              
             <a href="../../../php/controle/controle-logout.php?"><input class="btn" type="button" value="Encerrar sessão"></a>
         </div>
         </form>

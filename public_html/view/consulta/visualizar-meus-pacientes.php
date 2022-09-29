@@ -4,7 +4,7 @@
     session_start();
     if(!isset($_SESSION['mediId']) || $_SESSION['mediId'] == ''){
         header("Location: ../usuario/login.php");
-    } 
+    }
 
     include_once (__DIR__."/../../php/utils/autoload.php");
 

@@ -14,6 +14,13 @@ if ($campo == "nome") {
 	} 
 }
 
+// Verificando o campo de CRM
+if($campo == "crm"){
+	if($valor == ""){
+		echo "Insira o CRM";
+	}
+}
+
 // Verificando o campo especializacao
 if($campo == "especializacao"){
 	if($valor == ""){

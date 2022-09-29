@@ -65,19 +65,20 @@
                         <div class="actual-form">
                             <div class="input-wrap">
                                 <input type="text" id="nome" name="nome" value="" minlength="4" class="input-field" required onblur="validarDados('nome', document.getElementById('nome').value);" />
-                                <label>Nome completo</label><br>
-                                <div id="campo_nome"> </div> <br>
+                                <label>Nome completo</label>
+                                <div id="campo_nome"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="text" id="crm" name="crm" value="" pattern="[0-9]{5}-[A-Z]{2}" OnKeyPress="formatar('#####-##', this)" maxlength="8" required>
+                                <input class="input-field" type="text" id="crm" name="crm" value="" pattern="[0-9]{5}-[A-Z]{2}" OnKeyPress="formatar('#####-##', this)" maxlength="8" required onblur="validarDados('crm', document.getElementById('crm').value);" />
                                 <label>CRM</label>
+                                <div id="campo_crm"></div>
                             </div>
                             
                             <div class="input-wrap">
                                 <input class="input-field" type="text" id="especializacao" name="especializacao" value="" required onblur="validarDados('especializacao', document.getElementById('especializacao').value);" />
-                                <label>Especialização</label><br>
-                                <div id="campo_especializacao"> </div><br>
+                                <label>Especialização</label>
+                                <div id="campo_especializacao"> </div>
                             </div>
 
                             <div class="input-wrap">

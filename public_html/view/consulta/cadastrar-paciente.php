@@ -18,7 +18,6 @@
             header("Location: ../consulta/visualizar-paciente.php");
         }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +48,7 @@
 
         <!-- Conteúdo da página -->
         <div class="heading">
-            <h2>Cadastrar paciente</h2>       
+            <h2>Configurar paciente</h2>       
             <a href="../usuario/medico/menu.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
         </div>
         
@@ -122,12 +121,12 @@
                 </div>
 
                 <div class="input-box">
-                    <label for="peso">Peso</label>
+                    <label for="peso">Peso (Somente o número)</label>
                     <input type="text" id="peso" name="peso" class="input-field" required value="<?php if(isset($data)) { echo $data['paciPeso']; }?>" placeholder="Insira o peso do paciente">
                 </div>
 
                 <div class="input-box">
-                    <label for="altura">Altura</label>
+                    <label for="altura">Altura (em metros)</label>
                     <input type="text" id="altura" name="altura" class="input-field" required value="<?php if(isset($data)) { echo $data['paciAltura']; }?>" placeholder="Insira a altura do paciente">
                 </div>
         

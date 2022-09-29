@@ -7,6 +7,7 @@
             header("Location: ../login.php");
         }
     }
+    
     include_once (__DIR__ ."/../../php/utils/autoload.php");
 ?>
 

@@ -4,8 +4,6 @@
         session_start();
         if(isset($_SESSION['mediId']) && $_SESSION['mediId'] != '') {
             header("Location: view/usuario/medico/menu.php");
-        } else if(isset($_SESSION['receId']) && $_SESSION['receId'] != '') {
-            header("Location: view/usuario/recepcionista/menu.php");
         }
     }
 ?>
