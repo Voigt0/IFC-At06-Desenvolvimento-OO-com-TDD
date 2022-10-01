@@ -121,17 +121,20 @@
         }
 
         public function update(){
-            $sql = "UPDATE Consulta SET consData = :consData, consHorario = :consHorario, consGravidade = :consGravidade, consEstado = :consEstado, Paciente_paciId = :paciente_paciId, Medico_mediId = :medico_mediId WHERE consId = :consId";
-            $params = array(
-                ":consId" => $this->getId(),
-                ":consData" => $this->getData(),
-                ":consHorario" => $this->getHorario(),
-                ":consGravidade" => $this->getGravidade(),
-                ":consEstado" => $this->getEstado(),
-                ":paciente_paciId" => $this->getPaciente()->getId(),
-                ":medico_mediId" => $this->getMedico()->getId()
-            );
-            return Database::comando($sql, $params);
+            foreach($this->medicos as $key => $value) {
+                $sql = "UPDATE Consulta SET consData = :consData, consHorario = :consHorario, consGravidade = :consGravidade, consEstado = :consEstado, Paciente_paciId = :paciente_paciId, Medico_mediId = :medico_mediId WHERE consId = :consId";
+                $params = array(
+                    ":consId" => $this->getId(),
+                    ":consData" => $this->getData(),
+                    ":consHorario" => $this->getHorario(),
+                    ":consGravidade" => $this->getGravidade(),
+                    ":consEstado" => $this->getEstado(),
+                    ":paciente_paciId" => $this->getPaciente()->getId(),
+                    ":medico_mediId" => $this->getMedico()->getId()
+                );
+                Database::comando($sql, $params);
+            }
+            return true;
         }
 
         public function delete(){
