@@ -7,15 +7,17 @@
         if($acao == "update") {
             //Atualizar Consulta
             $paci = new Paciente($_POST['Paciente_paciId'], '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-            $medi = new Medico($_SESSION['mediId'], '', '', '', '', '', '');
+            $medi1 = new Medico($_SESSION['mediId'], '', '', '', '', '', '');
             $cons = new Consulta($_GET['consId'], $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], $_POST['consEstado'], $paci, $medi);
+            $medi2 = new Medico($_POST['Medico_mediId'], '', '', '', '', '', '');
+            $cons->adicionarMedico($medi1);
+            $cons->adicionarMedico($medi2);
             $cons->update();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta atualizada com sucesso!");
         } else if($acao == "delete") {
             //Excluir Consulta
             $paci = new Paciente('', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-            $medi = new Medico('', '', '', '', '', '', '');
-            $cons = new Consulta($_GET['consId'], '', '', '', '', $paci, $medi);
+            $cons = new Consulta($_GET['consId'], '', '', '', '', $paci);
             $cons->delete();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta excluída com sucesso!");            
         } else {

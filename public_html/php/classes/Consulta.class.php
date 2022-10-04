@@ -48,10 +48,6 @@
             return $this->paciente;
         }
 
-        public function getMedico() {
-            return $this->medico;
-        }
-
 
         public function setId($id) {
             $this->id = $id;
@@ -97,7 +93,6 @@
                     "<br>Gravidade: ".$this->getGravidade().
                     "<br>Estado: ".$this->getEstado().
                     "<br>Paciente: ".$this->getPaciente()->getId().
-                    "<br>Médico: ".$this->getMedico()->getId().
                     "<br>";
             return $str;
         }
@@ -130,7 +125,7 @@
                     ":consGravidade" => $this->getGravidade(),
                     ":consEstado" => $this->getEstado(),
                     ":paciente_paciId" => $this->getPaciente()->getId(),
-                    ":medico_mediId" => $this->getMedico()->getId()
+                    ":medico_mediId" => $value->getId()
                 );
                 Database::comando($sql, $params);
             }
@@ -175,10 +170,19 @@
             return Database::consulta($sql, $params);
         }
 
+        public static function consultarMedicos($id){
+            $sql = "SELECT * FROM Consulta_medico, Medico
+            WHERE Medico_mediId = mediId
+            AND Consulta_consId = :consId";
+            $params = array(':consId'=>$id);
+            return Database::consulta($sql, $params);
+        }
+
         public static function visualizarConsultas($mediId, $estado = "") {
-            $sql = "SELECT * FROM Consulta LEFT JOIN Relatorio ON Consulta_consId = consId, Paciente, Medico
+            $sql = "SELECT * FROM Consulta LEFT JOIN Relatorio ON Relatorio.Consulta_consId = consId, Paciente, Medico, Consulta_medico
                     WHERE Paciente_paciId = paciId 
-                    AND Medico_mediId = mediId 
+                    AND Medico_mediId = mediId
+                    AND Consulta_medico.Consulta_consId = consId
                     AND Medico_mediId = :mediId";
             if ($estado == 0) {
                 $sql .= " AND consEstado = 0";

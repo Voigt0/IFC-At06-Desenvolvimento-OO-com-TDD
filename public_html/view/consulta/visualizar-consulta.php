@@ -62,7 +62,7 @@
                 foreach($tabela as $key => $value) {
             ?>
             <tr>
-                <th><?php echo $value['consId'];?></th>
+                <th><a class="underline" href="visualizar-medicos-da-consulta.php?consId=<?php echo $value['consId']?>"><?php echo $value['consId'];?></a></th>
                 <td><a class="underline" href="cadastrar-paciente.php?paciId=<?php echo $value['paciId']?>"><?php echo $value['paciNome'];?></a></td>
                 <td><?php echo $value['consGravidade'];?></td>
                 <td><?php echo date("d/m/Y",strtotime($value['consData']));?></td>
