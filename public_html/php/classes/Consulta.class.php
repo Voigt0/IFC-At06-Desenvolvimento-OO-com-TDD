@@ -100,18 +100,36 @@
 
         //Métodos de persistência (CRUD)
         public function create(){
+            $sql = "INSERT INTO Consulta (consData, consHorario, consGravidade, consEstado, Paciente_paciId) VALUES (:consData, :consHorario, :consGravidade, :consEstado, :paciente_paciId); ";
+            $params = array(
+                ":consData" => $this->getData(),
+                ":consHorario" => $this->getHorario(),
+                ":consGravidade" => $this->getGravidade(),
+                ":consEstado" => $this->getEstado(),
+                ":paciente_paciId" => $this->getPaciente()->getId()
+            );
+            echo 1;
+            Database::comando($sql, $params);
+            echo 2;
             foreach($this->medicos as $key => $value) {
-                $sql = "INSERT INTO Consulta (consData, consHorario, consGravidade, consEstado, Paciente_paciId, Medico_mediId) VALUES (:consData, :consHorario, :consGravidade, :consEstado, :paciente_paciId, :medico_mediId)";
+                echo 3;
+                $sql = "INSERT INTO consulta_medico (Consulta_consId, Medico_mediId) VALUES (:consulta_consId, :medico_mediId); ";
+                echo 5;
                 $params = array(
-                    ":consData" => $this->getData(),
-                    ":consHorario" => $this->getHorario(),
-                    ":consGravidade" => $this->getGravidade(),
-                    ":consEstado" => $this->getEstado(),
-                    ":paciente_paciId" => $this->getPaciente()->getId(),
-                    ":medico_mediId" => $value->getId()
+                    ":medico_mediId" => $value->getId(),
+                    ":consulta_consId" => $this->getId()
                 );
+                echo "prim";
+                echo $value->getId();
+                echo "outro";
+                echo $this->getId();
+                die();
                 Database::comando($sql, $params);
+                echo 6;
             }
+            echo 4;
+            // echo $sql;
+            die();
             return true;
         }
 

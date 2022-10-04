@@ -3,7 +3,7 @@
     $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
     include_once (__DIR__."/../utils/autoload.php");
-    try {
+    // try {
         if($acao == "update") {
             //Atualizar Consulta
             $paci = new Paciente($_POST['Paciente_paciId'], '', '', '', '', '', '', '', '', '', '', '', '', '', '');
@@ -32,7 +32,7 @@
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta cadastrada com sucesso!");
             die();
         }
-    } catch(Exception $e) {
-        echo "<h1>Erro ao cadastrar as informações.</h1><br> Erro:".$e->getMessage();
-    }
+    // } catch(Exception $e) {
+    //     echo "<h1>Erro ao cadastrar as informações.</h1><br> Erro:".$e->getMessage();
+    // }
 ?>
