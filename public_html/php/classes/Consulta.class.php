@@ -108,44 +108,44 @@
                 ":consEstado" => $this->getEstado(),
                 ":paciente_paciId" => $this->getPaciente()->getId()
             );
-            echo 1;
             Database::comando($sql, $params);
-            echo 2;
             foreach($this->medicos as $key => $value) {
-                echo 3;
-                $sql = "INSERT INTO consulta_medico (Consulta_consId, Medico_mediId) VALUES (:consulta_consId, :medico_mediId); ";
-                echo 5;
+                $sql = "INSERT INTO consulta_medico (Consulta_consId, Medico_mediId) VALUES (LAST_INSERT_ID(), :medico_mediId); ";
                 $params = array(
-                    ":medico_mediId" => $value->getId(),
-                    ":consulta_consId" => $this->getId()
+                    ":medico_mediId" => $value->getId()
                 );
-                echo "prim";
-                echo $value->getId();
-                echo "outro";
-                echo $this->getId();
-                die();
                 Database::comando($sql, $params);
-                echo 6;
             }
-            echo 4;
-            // echo $sql;
-            die();
             return true;
         }
 
         public function update(){
+            $sql = "UPDATE Consulta SET consData = :consData, consHorario = :consHorario, consGravidade = :consGravidade, consEstado = :consEstado, Paciente_paciId = :paciente_paciId WHERE consId = :consId";
+            $params = array(
+                ":consId" => $this->getId(),
+                ":consData" => $this->getData(),
+                ":consHorario" => $this->getHorario(),
+                ":consGravidade" => $this->getGravidade(),
+                ":consEstado" => $this->getEstado(),
+                ":paciente_paciId" => $this->getPaciente()->getId(),
+            );
+            Database::comando($sql, $params);
             foreach($this->medicos as $key => $value) {
-                $sql = "UPDATE Consulta SET consData = :consData, consHorario = :consHorario, consGravidade = :consGravidade, consEstado = :consEstado, Paciente_paciId = :paciente_paciId, Medico_mediId = :medico_mediId WHERE consId = :consId";
+                $sql = "UPDATE Consulta_medico SET Medico_mediId = :medico_mediId
+                        WHERE Consulta_consId = :consId
+                        AND Medico_mediId != :mediId";
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_set_cookie_params(0);
+                    session_start();
+                }
                 $params = array(
+                    ":medico_mediId" => $value->getId(),
                     ":consId" => $this->getId(),
-                    ":consData" => $this->getData(),
-                    ":consHorario" => $this->getHorario(),
-                    ":consGravidade" => $this->getGravidade(),
-                    ":consEstado" => $this->getEstado(),
-                    ":paciente_paciId" => $this->getPaciente()->getId(),
-                    ":medico_mediId" => $value->getId()
+                    ":mediId" => $_SESSION['mediId']
                 );
-                Database::comando($sql, $params);
+                if($value->getId() != $_SESSION['mediId']) {
+                    Database::comando($sql, $params);
+                }
             }
             return true;
         }
@@ -183,7 +183,7 @@
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM Consulta WHERE consId = :consId";
+            $sql = "SELECT * FROM Consulta, Consulta_medico WHERE Consulta_consId = consId AND consId = :consId";
             $params = array(':consId'=>$id);
             return Database::consulta($sql, $params);
         }
