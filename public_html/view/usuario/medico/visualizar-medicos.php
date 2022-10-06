@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocGO!</title>
-    <link rel="stylesheet" href="../../../css/visualizar-paciente.css">
+    <link rel="stylesheet" href="../../../css/visualizar-consulta.css">
     <link rel="stylesheet" href="../../../css/css-geral.css">
     <link rel="icon" type="image/x-icon" href="../../../img/favicon/favicon.ico">
 </head>
@@ -54,7 +54,7 @@
             </thead>
             <tbody>
             <?php 
-                $tabela = MedicoBD::consultar(2, $pesquisa);
+                $tabela = Medico::consultar(2, $pesquisa);
                 foreach($tabela as $key => $value) {
             ?>
             <tr>

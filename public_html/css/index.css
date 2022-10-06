@@ -9,7 +9,7 @@ body{
     color: #fff;
     position: absolute;
     bottom: 20%;
-    width: 40%;
+    width: 30%;
 }
 
 .text-box p{
@@ -50,9 +50,9 @@ body{
 
 .img-box img{
     display: block;
-    padding-top: 100px;
-    width: 600px;
-    margin-bottom: -205px;
+    padding-top: 150px;
+    width: 560px;
+    margin-bottom: -205rem;
 }
 
 a{

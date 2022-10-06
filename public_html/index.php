@@ -29,16 +29,19 @@
                 <a href="view/usuario/login.php" class="nav-btn">Login</a>
             </ul>
         </nav>
-        <div class="text-box">
-            <p>Bem-vindo ao</p>
-            <h1>DocGO!</h1>
-            <h3>DocGO é um website especializado na gestão e organização de pacientes, para um atendimento tecnológico, prático e repleto de 
-                inovação.</h3>
-        </div>
+        <div class="conteudo">
 
-        <div class="img-box">
-            <img src="img/png/index.png" class="img">
-        </div>
+            <div class="text-box">
+                <p>Bem-vindo ao</p>
+                <h1>DocGO!</h1>
+                <h3>DocGO é um website especializado na gestão e organização de pacientes, para um atendimento tecnológico, prático e repleto de 
+                    inovação.</h3>
+                </div>
+                
+                <div class="img-box">
+                    <img src="img/png/index.png" class="img">
+                </div>
+            </div>
     </div>
 </body>
 </html>

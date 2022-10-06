@@ -59,8 +59,8 @@ a{
 }
 
 .underline:hover{
-    color:#90011e;
-    text-decoration: underline;
+    color:#8200e5;
+    /* text-decoration: underline; */
 }
 
 
@@ -70,4 +70,14 @@ a{
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
+}
+
+.btn-table{
+    border: 1px solid rgba(0, 0, 0, 0.771);
+    display: flex;
+    justify-content: center;
+}
+
+.btn-table:hover{
+    border: 1px solid #8200e5;
 }
