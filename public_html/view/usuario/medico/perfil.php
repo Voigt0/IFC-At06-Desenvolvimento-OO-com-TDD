@@ -39,6 +39,8 @@
             </ul>
         </nav>
 
+    <div class="geral">
+
         <div class="heading">
             <h2>Olá, Doutor!</h2>
             <a href="menu.php"><img src="../../../img/icon/backIcon.svg" class="back"></a>
@@ -92,5 +94,7 @@
         </div>
         </form>
     </div>
+    </div>    
+
 </body>
 </html>

@@ -143,8 +143,27 @@
                     ":consId" => $this->getId(),
                     ":mediId" => $_SESSION['mediId']
                 );
+                if($value->getId() == "nenhum") {
+                    $sql = "DELETE FROM Consulta_medico 
+                            WHERE Consulta_consId = :consId
+                            AND Medico_mediId != :mediId";
+                    $params = array(
+                        ":consId" => $this->getId(),
+                        ":mediId" => $_SESSION['mediId']
+                    );
+                }
                 if($value->getId() != $_SESSION['mediId']) {
                     Database::comando($sql, $params);
+                    if($value->getId() != "nenhum") {
+                        if(count(Consulta::consultarData($this->getId())) == 1) {
+                            $sql = "INSERT INTO consulta_medico (Consulta_consId, Medico_mediId) VALUES (:consId, :medico_mediId);";
+                            $params = array(
+                                ":consId" => $this->getId(),
+                                ":medico_mediId" => $value->getId()
+                            );
+                            Database::comando($sql, $params);
+                        }
+                    }
                 }
             }
             return true;

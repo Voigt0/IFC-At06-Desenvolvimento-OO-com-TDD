@@ -9,12 +9,19 @@
     }
 
     include_once (__DIR__."/../../php/utils/autoload.php");
+    
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
     //Salvar contexto
-    if(isset($_GET['consId'])) {
+    if($acao == "update") {
         if(Consulta::validar($_GET['consId'])) {
             $data = Consulta::consultarData($_GET['consId'])[0];
+            if($data['Medico_mediId'] == $_SESSION['mediId'] && count(Consulta::consultarData($_GET['consId'])) > 1) {
+                $data = Consulta::consultarData($_GET['consId'])[1];
+            }
         } else {
+            $data['Paciente_paciId'] = "";
+            $data['Medico_mediId'] = "";
             header("Location: ../consulta/configurar-consulta.php");
         }
     }
@@ -59,7 +66,7 @@
 
         <!-- Formulário -->
         <div class="heading">
-            <h2>Adicione a consulta</h2>
+            <h2><?php if(isset($_GET['acao']) && $_GET['acao'] == 'update'){echo "Editar";}else{echo "Adicionar";} ?> consulta</h2>
             <a href="../usuario/medico/menu.php"><img src="../../img/icon/backIcon.svg" class="back"></a>
         </div>
         
@@ -67,7 +74,7 @@
             <div class="form-box">
                 <div class="input-box">
                     <label for="consData">Data</label>
-                    <input type="date" id="consData" name="consData" class="input-field" value="<?php if(isset($data)) { echo $data['consData']; }?>" required>
+                    <input type="date" min="<?php echo date("Y-m-d");?>" id="consData" name="consData" class="input-field" value="<?php if(isset($data)) { echo $data['consData']; }?>" required>
                 </div>
                 
                 <div class="input-box">
@@ -89,12 +96,12 @@
                     <label id="radio">5</label>                    
                 </div>
             
-                <div class="input-checkbox">
-                    <p>Consulta finalizada?</p>
-                    <input type="checkbox" id="consEstado" name="consEstado" value="0" <?php if(isset($data) && $data['consEstado'] == '0') echo 'checked';?>>
-                    <label>Não</label>
-                    <input type="checkbox" id="consEstado" name="consEstado" value="1" <?php if(isset($data) && $data['consEstado'] == '1') echo 'checked';?>>
-                    <label>Sim</label>
+                <div class="input-checkbox" <?php if($acao != "update"){echo "hidden";}?>>
+                    <p <?php if($acao != "update"){echo "hidden";}?>>Consulta finalizada?</p>
+                    <input <?php if($acao != "update"){echo "hidden";}?> type="checkbox" id="consEstado" name="consEstado" value="0" <?php if(isset($data) && $data['consEstado'] == '0') echo 'checked';?>>
+                    <label <?php if($acao != "update"){echo "hidden";}?>>Não</label>
+                    <input <?php if($acao != "update"){echo "hidden";}?> type="checkbox" id="consEstado" name="consEstado" value="1" <?php if(isset($data) && $data['consEstado'] == '1') echo 'checked';?>>
+                    <label <?php if($acao != "update"){echo "hidden";}?>>Sim</label>
                 </div>
 
                 <div class="input-box">
@@ -116,6 +123,7 @@
                             require_once "../../php/utils/select-box.php";
                             echo selectBox('Medico', array('mediId', 'mediNome'), $data['Medico_mediId']);
                         ?>
+                        <option <?php if($acao == "update" && count(Consulta::consultarData($_GET['consId'])) == 1){echo "selected";}?> value='nenhum'>Nenhum</option>
                     </select>
                 </div>
 

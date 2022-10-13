@@ -100,13 +100,13 @@
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="senha-cad" name="senha" value="" maxlength="20" required onblur="validar('senha-cad', document.getElementById('senha-cad').value);" />
+                                <input class="input-field" onkeyup='confirmarSenha();' type="password" id="senha-cad" name="senha" value="" maxlength="20" required onblur="validar('senha-cad', document.getElementById('senha-cad').value);" />
                                 <label>Senha</label>
                                 <div id="div_senha-cad"> </div>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="input-field" type="password" id="confSenha" name="confSenha" value="" maxlength="20" required onblur="validar('confSenha', document.getElementById('confSenha').value);" />
+                                <input class="input-field" onkeyup='confirmarSenha();' type="password" id="confSenha" name="confSenha" value="" maxlength="20" required onblur="validar('confSenha', document.getElementById('confSenha').value);" />
                                 <label>Confirmar Senha</label>
                                 <div id="div_confSenha"> </div>
                             </div>

@@ -63,8 +63,8 @@
 
             ?>
             <tr>
-                <th><a class="underline" href="visualizar-medicos-da-consulta.php?consId=<?php echo $value['consId']?>"><?php echo $value['consId'];?></a></th>
-                <td><a class="underline" href="cadastrar-paciente.php?paciId=<?php echo $value['paciId']?>"><div class="btn-table"><?php echo $value['paciNome'];?></div></a></td>
+                <th><a class="underline" href="visualizar-medicos-da-consulta.php?consId=<?php echo $value['consId']?>"><div class="btn-table"><?php echo $value['consId'];?></div></a></th>
+                <td><a class="underline" href="cadastrar-paciente.php?paciId=<?php echo $value['paciId']?>&acao=update"><div class="btn-table"><?php echo $value['paciNome'];?></div></a></td>
                 <td><?php echo $value['consGravidade'];?></td>
                 <td><?php echo date("d/m/Y",strtotime($value['consData']));?></td>
                 <td><?php echo $value['consHorario'];?></td>

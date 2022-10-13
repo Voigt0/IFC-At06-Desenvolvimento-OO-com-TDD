@@ -7,10 +7,10 @@
         if($acao == "update") {
             //Atualizar Consulta
             $paci = new Paciente($_POST['Paciente_paciId'], '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-            $medi1 = new Medico($_SESSION['mediId'], '', '', '', '', '', '');
             $cons = new Consulta($_GET['consId'], $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], $_POST['consEstado'], $paci);
-            $medi2 = new Medico($_POST['Medico_mediId'], '', '', '', '', '', '');
+            $medi1 = new Medico($_SESSION['mediId'], '', '', '', '', '', '');
             $cons->adicionarMedico($medi1);
+            $medi2 = new Medico($_POST['Medico_mediId'], '', '', '', '', '', '');
             $cons->adicionarMedico($medi2);
             $cons->update();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta atualizada com sucesso!");
@@ -23,11 +23,13 @@
         } else {
             //Cadastrar Consulta
             $paci = new Paciente($_POST['Paciente_paciId'], '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+            $cons = new Consulta('', $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], 0, $paci);
             $medi1 = new Medico($_SESSION['mediId'], '', '', '', '', '', '');
-            $cons = new Consulta('', $_POST['consData'], $_POST['consHorario'], $_POST['consGravidade'], $_POST['consEstado'], $paci);
-            $medi2 = new Medico($_POST['Medico_mediId'], '', '', '', '', '', '');
             $cons->adicionarMedico($medi1);
-            $cons->adicionarMedico($medi2);
+            if($_POST['Medico_mediId'] != "nenhum"){
+                $medi2 = new Medico($_POST['Medico_mediId'], '', '', '', '', '', '');
+                $cons->adicionarMedico($medi2);
+            }
             $cons->create();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Consulta cadastrada com sucesso!");
             die();

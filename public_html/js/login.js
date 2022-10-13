@@ -52,4 +52,11 @@ function formatar(mascara, documento){
   }
   }
 
-  
+  function confirmarSenha() {
+    if (document.getElementById('usuaSenha').value == document.getElementById('usuaSenhaConfirma').value && document.getElementById('usuaSenha').value.length >= 8) {
+        document.getElementById('enviar').disabled = false;
+        document.getElementById('mensagemSenha').style.display = "none";
+    } else {
+        document.getElementById('enviar').disabled = true;
+        document.getElementById('mensagemSenhaPequena').style.display = "none";
+    }}

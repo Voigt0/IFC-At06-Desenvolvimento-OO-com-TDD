@@ -58,7 +58,7 @@
                 foreach($tabela as $key => $value) {
             ?>
             <tr>
-                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>"><?php echo $value['paciNome'];?></td></a>
+                <td><a href="cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=visualizar"><?php echo $value['paciNome'];?></td></a>
                 <td><?php echo date("d/m/Y",strtotime($value['paciNascimento']));?></td>
                 <td class="img"><a href='cadastrar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=update'><img src="../../img/icon/editar.svg" style="width: 1.8vw;"></a></td>
                 <td class="img"><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-configurar-paciente.php?paciId=<?php echo $value['paciId'];?>&acao=delete"><img src="../../img/icon/deletar.svg" style="width: 1.8vw;"></a></td>
@@ -69,7 +69,6 @@
             ?> 
        </table>
        <br>
-       <a href="visualizar-meus-pacientes.php"><input type="button" class="btn" value="Visualizar meus pacientes"></a>
        </div>
 </main>
 </body>

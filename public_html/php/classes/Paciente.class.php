@@ -205,7 +205,8 @@
                 ":paciPeso" => $this->getPeso(),
                 ":paciAltura" => $this->getAltura()
             );
-            return Database::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
         public function update(){
@@ -227,7 +228,8 @@
                 ":paciPeso" => $this->getPeso(),
                 ":paciAltura" => $this->getAltura()
             );
-            return Database::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
         public function delete(){
@@ -235,7 +237,8 @@
             $params = array(
                 ":paciId" => $this->getId()
             );
-            return Database::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
        

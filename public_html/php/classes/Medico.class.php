@@ -83,7 +83,8 @@
                 ":mediEmail" => $this->login->getEmail(),
                 ":mediSenha" => $this->login->getSenha()
             );
-            return Database::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
         public function update(){
@@ -97,7 +98,8 @@
                 ":mediEmail" => $this->login->getEmail(),
                 ":mediSenha" => $this->login->getSenha()
             );
-            return Database::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
         public function delete(){
@@ -105,7 +107,8 @@
             $params = array(
                 ":mediId" => $this->getId()
             );
-            return Database::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
        
