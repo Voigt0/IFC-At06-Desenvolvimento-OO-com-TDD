@@ -7,16 +7,16 @@
         private $descricao;
         private $medicamentos;
         private $exames;
-        private $consulta_consId;
+        private $consulta;
 
 
         // Criação do Construct
-        public function __construct($id, $descricao, $medicamentos, $exames, $consulta_consId) {
+        public function __construct($id, $descricao, $medicamentos, $exames, Consulta $consulta) {
             $this->setId($id);
             $this->setDescricao($descricao);
             $this->setMedicamentos($medicamentos);
             $this->setExames($exames);
-            $this->setConsulta_consId($consulta_consId);
+            $this->setConsulta($consulta);
         }  
         
 
@@ -37,8 +37,8 @@
             return $this->exames;
         }
 
-        public function getConsulta_consId() {
-            return $this->consulta_consId;
+        public function getConsulta() {
+            return $this->consulta;
         }
 
 
@@ -58,8 +58,8 @@
             $this->exames = $exames;
         }
 
-        public function setConsulta_consId($consulta_consId) {
-            $this->consulta_consId = $consulta_consId;
+        public function setConsulta($consulta) {
+            $this->consulta = $consulta;
         }
 
 
@@ -70,7 +70,7 @@
                     "<br>Descrição: ".$this->getDescricao().
                     "<br>Medicamentos: ".$this->getMedicamentos().
                     "<br>Exames: ".$this->getExames().
-                    "<br>Consulta: ".$this->getConsulta_consId().
+                    "<br>Consulta: ".$this->getConsulta().
                     "<br>";
             return $str;
         }
@@ -82,7 +82,7 @@
                 ":relaDescricao" => $this->getDescricao(),
                 ":relaMedicamentos" => $this->getMedicamentos(),
                 ":relaExames" => $this->getExames(),
-                ":Consulta_consId" => $this->getConsulta_consId()
+                ":Consulta_consId" => $this->getConsulta()->getId()
             );
             return Database::comando($sql, $params);
         }
@@ -94,7 +94,7 @@
                 ":relaDescricao" => $this->getDescricao(),
                 ":relaMedicamentos" => $this->getMedicamentos(),
                 ":relaExames" => $this->getExames(),
-                ":Consulta_consId" => $this->getConsulta_consId()
+                ":Consulta_consId" => $this->getConsulta()->getId()
             );
             return Database::comando($sql, $params);
         }

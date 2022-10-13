@@ -5,17 +5,23 @@
     try {
         if($acao == 'update') {
             //Atualizar relatório
-            $rela = new Relatorio($_GET['relaId'], $_POST['relaDescricao'], $_POST['relaMedicamentos'], $_POST['relaExames'], $_GET['consId']);
+            $paci = new Paciente('', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+            $cons = new Consulta($_GET['consId'], '', '', '', '', $paci);
+            $rela = new Relatorio($_GET['relaId'], $_POST['relaDescricao'], $_POST['relaMedicamentos'], $_POST['relaExames'], $cons);
             $rela->update();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Relatório cadastrado com sucesso!");
         } else if($acao == 'delete') {
             //Deletar relatório
-            $rela = new Relatorio($_GET['relaId'], $_POST['relaDescricao'], $_POST['relaMedicamentos'], $_POST['relaExames'], $_GET['consId']);
+            $paci = new Paciente('', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+            $cons = new Consulta($_GET['consId'], '', '', '', '', $paci);
+            $rela = new Relatorio($_GET['relaId'], $_POST['relaDescricao'], $_POST['relaMedicamentos'], $_POST['relaExames'], $cons);
             $rela->delete();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Relatório cadastrado com sucesso!");
         } else {
             //Gerar relatório
-            $rela = new Relatorio('', '', '', '', $_GET['consId']);
+            $paci = new Paciente('', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+            $cons = new Consulta($_GET['consId'], '', '', '', '', $paci);
+            $rela = new Relatorio('', '', '', '', $cons);
             $rela->create();
             header("Location: ../../view/consulta/visualizar-consulta.php?msg=Relatório cadastrado com sucesso!");
         }
