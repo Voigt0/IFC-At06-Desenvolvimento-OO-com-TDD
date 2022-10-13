@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Paciente{
+    class Paciente extends Crud{
         // Atributos
         private $id;
         private $nome;
