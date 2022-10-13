@@ -122,9 +122,6 @@ a{
         width: 80%;
         padding-left: 12rem;
     }
-
-    
-    
 }
 
 
@@ -133,23 +130,15 @@ a{
        display: none;
        width: 0%;
     }
-
-    .geral{
-        /* background-color: #90011e; */
-        /* display: flex;
-        flex-direction: column;
-        justify-content: center; */
-    }
-
     .corpo{
-        /* flex-direction: row;
-        align-items: center; */
         width: 100%;
         padding: 0;
+    }   
+}
+
+@media (max-width: 835px) { 
+    .form-footer{
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    
-
-
-    
-    
 }

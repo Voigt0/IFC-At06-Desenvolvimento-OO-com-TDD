@@ -2,6 +2,7 @@
     include_once (__DIR__ ."/../utils/autoload.php");
 
     abstract class Crud{
+        private $id;
         
         // Criação do Construct
         public function __construct() {

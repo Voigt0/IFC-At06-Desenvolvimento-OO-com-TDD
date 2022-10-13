@@ -1,10 +1,10 @@
-// A variável "objeto" receve o objeto XMHttpRequest --> Usada para enviar requisições HTTPS diretamente com o servidor
+// A variável "objeto" receve o objeto XMLHttpRequest --> Usada para enviar requisições HTTPS diretamente com o servidor
 var objeto;
 
 // Função que realiza a validação dos dados
 function validar(input, value) {
 	// Envio dos valores para a página de controle e validação.
-	var link = "../../php/controle/validacao.php?input="+input+"&value="+value;
+	var link = "../../php/utils/validacao.php?input="+input+"&value="+value;
 
 	if(window.XMLHttpRequest) {
 		objeto	= new XMLHttpRequest();

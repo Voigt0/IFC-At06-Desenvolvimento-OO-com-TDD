@@ -25,6 +25,8 @@ body{
     color: transparent;
     -webkit-text-stroke: 1px #fff;
     background: url(../img/png/animation.png);
+    width: 800px;
+    /* deixa apenas dentro do texto */
     -webkit-background-clip: text;
     background-position: 0 0;
     animation: back 20s linear infinite;
